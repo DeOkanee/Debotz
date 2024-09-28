@@ -239,7 +239,7 @@ footer p {
 }
 
 /* Ukuran layar 767px ke bawah */
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
     .logo {
         font-size: 18px; /* Mengurangi ukuran font logo */
     }
@@ -253,9 +253,27 @@ footer p {
     }
 
     nav ul li {
-
-        margin-left: 0; /* Kurangi margin antar item menu */
+        text-align: right;
+        padding: 7px 0;
+        padding-right: 70px;
     }
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+    nav ul li .dropdown {
+        position: static; 
+        background: none;
+    justify-content: flex-end;
+    }
+
+
     .container {
         width: 90%;
 
