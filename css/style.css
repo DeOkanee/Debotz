@@ -283,9 +283,18 @@ footer p {
     /* Tampilan search bar */
     .search-bar {
         margin-top: 80px; /* Sesuaikan jarak header */
-        width: 90%;
+       text-align: center;
+    
     }
-
+    .search-bar input {
+        width: 90%;
+        padding: 15px;
+        background-color: #3a3a3a;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        border-radius: 6px;
+    }
     .main-content {
         flex-direction: column; /* Kolom berurutan vertikal */
         margin-top: -1px;
@@ -359,6 +368,10 @@ footer p {
     /* Tampilan search bar */
     .search-bar {
         margin-top: 90px; /* Sesuaikan jarak header */
+        text-align: center;
+    }
+    .search-bar input{
+        border-radius: 6px;
     }
 
     /* Tampilan teks dan tombol lebih kecil */
