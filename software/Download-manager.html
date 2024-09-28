@@ -17,15 +17,17 @@
     <title>Debotz</title>
     <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style-download-manager.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo"><span>de</span>botz<span class="com">.vercel.app</span></div>
-                <ul>
+                <button class="hamburger" onclick="toggleMenu()">☰</button> <!-- Ikon hamburger -->
+                <ul id="menu" class="menu">
                     <li>
-                        <a href="#">APLIKASI</a>
+                        <a href="#">APLIKASI <i class="bi bi-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="../Disain-Grafis.html">Desain Grafis</a></li>
                             <li><a href="../software/Video-Editor.html">Video Editor</a></li>
@@ -33,15 +35,16 @@
                             <li><a href="../software/Aktivasi.html">Aktivasi</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://saweria.co/Debotz">DONASI</a></li>
+                   
                     <li>
-                        <a href="#">GAMES</a>
+                        <a href="#">GAMES <i class="bi bi-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="#">-</a></li>
                             <li><a href="#">-</a></li>
                             <li><a href="#">-</a></li>
                         </ul>
                     </li>
+                    <li><a href="https://saweria.co/Debotz">DONASI</a></li>
                     <li><a href="#">TENTANG KAMI</a></li>
                 </ul>
             </nav>
@@ -105,5 +108,6 @@
         });
     </script>
     <script src="../js/selengkapnnya.js"></script>
+    <script src="../js/garis3.js"></script>
 </body>
 </html>

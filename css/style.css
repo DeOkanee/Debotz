@@ -119,6 +119,7 @@ nav ul li:hover .dropdown {
 
 
 
+
 .search-bar {
     margin-top: 80px;
 }
@@ -241,7 +242,7 @@ footer p {
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
     .logo {
-        font-size: 18px; /* Mengurangi ukuran font logo */
+        font-size: 20px; /* Mengurangi ukuran font logo */
     }
 
     .menu {
@@ -296,8 +297,9 @@ footer p {
         border-radius: 6px;
     }
     .main-content {
+        display: flex;
         flex-direction: column; /* Kolom berurutan vertikal */
-        margin-top: -1px;
+        margin-top: 0;
     }
     .post h2 {
         font-size: 18px;
@@ -312,8 +314,9 @@ footer p {
     }
     .right-column {
         margin-top: 20px;
-        width: 90%;
+        width:auto;
     }
+
     .software-icon img {
         width: 100px;
         height: 100px;

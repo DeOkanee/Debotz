@@ -64,8 +64,8 @@ nav ul li .dropdown {
     position: absolute;
     background-color: #444;
     top: 100%; /* Tempatkan dropdown tepat di bawah item menu */
-    left: -20px;
-    list-style-type: none;
+    left: 0;
+   
     padding: 0;
     margin: 0;
     width: 250px;
@@ -93,6 +93,27 @@ nav ul li:hover .dropdown {
     display: block;
 }
 
+/* Hamburger Icon */
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown only on small screens */
+}
+
+/* Menu for desktop */
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.menu li {
+    position: relative;
+    margin-left: 20px;
+}
 
 .search-bar {
     margin-top: 80px;
@@ -130,6 +151,8 @@ nav ul li:hover .dropdown {
     background-color: #2a2a2a;
     padding: 20px;
     margin-bottom: 20px;
+    overflow: hidden; /* Mencegah konten keluar dari elemen .post */
+    word-wrap: break-word;
 }
 .post h2 {
     margin-top: 0;
@@ -208,4 +231,182 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* Ukuran layar 767px ke bawah */
+@media (max-width: 1000px) {
+    .logo {
+        font-size: 20px; /* Mengurangi ukuran font logo */
+    }
+
+    .menu {
+        display: none; /* Sembunyikan menu pada ukuran layar kecil */
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan ikon hamburger */
+    }
+
+    nav ul li {
+        text-align: right;
+        padding: 10px 0;
+        padding-right: 70px;
+    }
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+    .menu .dropdown  {
+        position: static; 
+      background: none;
+    width: auto;
+    margin-right: 20px;
+    
+    }
+
+    .container {
+        width: 90%;
+
+    }
+
+    /* Tampilan search bar */
+    .search-bar {
+        margin-top: 80px; /* Sesuaikan jarak header */
+       text-align: center;
+    
+    }
+    .search-bar input {
+        width: 90%;
+        padding: 15px;
+        background-color: #3a3a3a;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+    .main-content {
+        flex-direction: column; /* Kolom berurutan vertikal */
+        margin-top: 90px;
+    }
+    .post h2 {
+        font-size: 18px;
+    }
+
+    .left-column {
+        margin-right: 0;
+        width: 100%;
+    }
+    .left-column h1{
+      font-size: 24px;
+    }
+    .right-column {
+        margin-top: 20px;
+       width: auto;
+    }
+    .software-icon img {
+        width: 100px;
+        height: 100px;
+    }
+    footer{
+        margin-top: 300px;
+    }
+}
+
+/* Ukuran layar 440px ke bawah */
+@media (max-width: 440px) {
+    /* Atur ulang logo agar lebih kecil */
+    .logo {
+        font-size: 18px; /* Lebih kecil lagi untuk layar kecil */
+    }
+
+    .hamburger {
+        font-size: 24px; /* Sesuaikan ukuran ikon hamburger */
+    }
+
+    nav ul li {
+       
+        text-align: right;
+        padding: 7px 0;
+   margin-right: 70px;
+      
+    }
+    
+
+    /* Jika menu ditampilkan (misalnya setelah klik hamburger), 
+       atur posisi dan ukuran menu agar responsif */
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+
+    nav ul li .dropdown {
+        position: static; 
+        background: none;
+        margin: 0;
+    }
+
+
+
+    /* Atur ukuran gambar agar lebih kecil */
+    .app-icon {
+        width: 80px;
+    }
+    /* Tampilan search bar */
+    .search-bar {
+        margin-top: 90px; /* Sesuaikan jarak header */
+        text-align: center;
+    }
+    .search-bar input{
+        border-radius: 6px;
+    }
+.main-content{
+    margin-top: 80px;
+}
+    /* Tampilan teks dan tombol lebih kecil */
+    .post h2 {
+        font-size: 18px;
+    }
+
+    .toggle-button {
+        font-size: 14px;
+        padding: 3px 8px;
+    }
+
+    /* Ukuran kolom kanan pada tampilan kecil */
+    .right-column {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .software-icon img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .software-icon p {
+        font-size: 15px;
+    }
+    .software-icon .logo2{
+        font-size: 18px;
+    }
+
+    /* Atur ulang footer */
+    footer{
+        margin-top: 100px;
+    }
+    footer p {
+        font-size: 12px;
+    }
 }
