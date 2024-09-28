@@ -94,6 +94,10 @@ nav ul li:hover .dropdown {
     display: block;
 }
 
+.dropdown-toggle:hover + .dropdown,
+.dropdown:hover {
+    display: block; /* Tampilkan dropdown saat hover pada toggle atau dropdown */
+}
 /* Hamburger Icon */
 .hamburger {
     font-size: 30px;
