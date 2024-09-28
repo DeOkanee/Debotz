@@ -65,8 +65,8 @@ nav ul li .dropdown {
     position: absolute;
     background-color: #444;
     top: 100%; /* Tempatkan dropdown tepat di bawah item menu */
-    left: -20px;
-    list-style-type: none;
+    left: 0;
+   
     padding: 0;
     margin: 0;
     width: 250px;
@@ -254,7 +254,7 @@ footer p {
 
     nav ul li {
         text-align: right;
-        padding: 7px 0;
+        padding: 10px 0;
         padding-right: 70px;
     }
     #menu {
@@ -267,12 +267,13 @@ footer p {
     }
 
    
-    nav ul li .dropdown {
+    .menu .dropdown  {
         position: static; 
-        background: none;
-    justify-content: flex-end;
+      background: none;
+    width: auto;
+    margin-right: 20px;
+    
     }
-
 
     .container {
         width: 90%;
@@ -322,10 +323,13 @@ footer p {
     }
 
     nav ul li {
-    text-align: right;
-        padding: 5px 0;
-        padding-right: 70px;
+       
+        text-align: right;
+        padding: 7px 0;
+   margin-right: 70px;
+      
     }
+    
 
     /* Jika menu ditampilkan (misalnya setelah klik hamburger), 
        atur posisi dan ukuran menu agar responsif */
