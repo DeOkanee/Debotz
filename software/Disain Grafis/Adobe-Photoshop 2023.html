@@ -17,31 +17,34 @@
     <title>Debotz</title>
     <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/adobe-photoshop23.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo"><span>de</span>botz<span class="com">.vercel.app</span></div>
-                <ul>
+                <button class="hamburger" onclick="toggleMenu()">☰</button> <!-- Ikon hamburger -->
+                <ul id="menu" class="menu">
                     <li>
-                        <a href="#">APLIKASI</a>
+                        <a href="#">APLIKASI <i class="bi bi-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="/Disain-Grafis.html">Desain Grafis</a></li>
-                            <li><a href="software/Video-Editor.html">Video Editor</a></li>
-                            <li><a href="software/Download-manager.html">Download Manager</a></li>
-                            <li><a href="software/Aktivasi.html">Aktivasi</a></li>
+                            <li><a href="/software/Video-Editor.html">Video Editor</a></li>
+                            <li><a href="/software/Download-manager.html">Download Manager</a></li>
+                            <li><a href="/software/Aktivasi.html">Aktivasi</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">GAMES <i class="bi bi-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">-</a></li>
+                            <li><a href="#">-</a></li>
+                            <li><a href="#">-</a></li>
                         </ul>
                     </li>
                     <li><a href="https://saweria.co/Debotz">DONASI</a></li>
-                    <li>
-                        <a href="#">GAMES</a>
-                        <ul class="dropdown">
-                            <li><a href="#">-</a></li>
-                            <li><a href="#">-</a></li>
-                            <li><a href="#">-</a></li>
-                        </ul>
-                    </li>
                     <li><a href="#">TENTANG KAMI</a></li>
                 </ul>
             </nav>
@@ -82,100 +85,101 @@
                            <li>Sudah mendukung <span class="highlight">Windows 10</span> dan <span class="highlight">Windows 11 Pro 64 bit terbaru</span></li>
                         </ul>
                     </div>
+                    <div class="required">
+                        <h2>Required Operating System:</h2>
+                        <ul>
+                            <li>– Windows 11 and Windows 10 (64-bit) versions V21H1, and V20H2</li>
+                            <li>– Windows Server versions V1607 (2016) and V1809 (2019)</li>
+                        </ul>
+                    
+                        <div class="requirements-header">System & Hardware Requirements for Windows</div>
+                        <table>
+                            <tr>
+                                <th>Operating System</th>
+                                <td>Windows 10 & 11 (64-bit only)</td>
+                            </tr>
+                            <tr>
+                                <th>Processor</th>
+                                <td>2GHz Intel i5 Core, Gen 6th</td>
+                            </tr>
+                            <tr>
+                                <th>RAM</th>
+                                <td>8GB or higher of RAM</td>
+                            </tr>
+                            <tr>
+                                <th>Monitor</th>
+                                <td>Monitor with 1920x1080 pixels or higher resolution</td>
+                            </tr>
+                            <tr>
+                                <th>Graphics</th>
+                                <td>NVidia Dedicated GPU or AMD GPU</td>
+                            </tr>
+                        </table>
+                       </div>
+        
+                        <div class="instalasi">
+                            <h1>Instalasi</h1>
+                            <ol>
+                                <li>Download Photoshop 2023 Full Version</li>
+                                <li>Selanjutnya, extract file <span class="highlight">Photoshop.2023.v24.7.0 x64.rar</span> menggunakan <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-701.exe"> Winrar terbaru</a></li>
+                                <li>Password RAR <span class="debot">Debotz</span> </li>
+                                <li>Extract file <span class="highlight">Adobe.Photoshop.2023.u10.Multilingual.iso</span> menggunakan Winrar terbaru</li>
+                                <li>Setelah selesai, jalankan file autoplay.exe</li>
+                                <li>Proses instalasi akan berjalan secara otomatis. Kamu hanya perlu menunggu beberapa menit hingga semua komponen selesai diinstal.</li>
+                                <li>Setelah instalasi selesai, aplikasi sudah siap digunakan. Kamu bisa langsung menjalankannya dan menikmati fitur-fitur yang disediakan.</li>
+                               
+                            </ol>
+                            <h1>Note</h1>
+                            <ul>
+                                <li>Firefly, Generative Fill, Neural Filters adalah fitur online dan sudah di patch, tidak berfungsi pada CRACK. Silahkan beli lisensi original jika ingin menggunakan fitur tersebut.</li>
+                            
+                               
+                            </ul>
+                            <div class="download-info">
+                                <p>Download Adobe Photoshop 2023.v24.7.0 x64 Full Version <br>(Size: 2.35 GB)</p>
+                                
+                                <div class="download-links">
+                                    <a href="https://sfl.gl/8lCh">Pixeldrain</a> | <a style="display: none;" href="#">Mediafire</a> | <a href="https://sfl.gl/UacsuJQb">MEGA</a>
+                                </div>
+                                
+                                <div class="download-links">
+                                    Password RAR: <a class="copy-icon" id="copyText">Debotz</a>
+                                </div>
+                                
+                                <script>
+                                    document.getElementById("copyText").addEventListener("click", function(e) {
+                                    e.preventDefault(); // Mencegah default behavior link
+                                    var textToCopy = "Debotz"; // Teks yang ingin disalin
+        
+                                    // Membuat elemen textarea sementara untuk menyalin teks
+                                    var tempInput = document.createElement("textarea");
+                                    tempInput.value = textToCopy;
+                                    document.body.appendChild(tempInput);
+                                    
+                                    // Memilih teks dan menyalinnya ke clipboard
+                                    tempInput.select();
+                                    document.execCommand("copy");
+        
+                                    // Menghapus elemen textarea sementara
+                                    document.body.removeChild(tempInput);
+        
+                                    // Mengubah ikon clipboard menjadi tanda centang
+                                    var copyIcon = document.getElementById("copyText");
+                                    copyIcon.classList.add("copied");
+        
+                                    // Mengembalikan ikon menjadi clipboard setelah 2 detik
+                                    setTimeout(function() {
+                                        copyIcon.classList.remove("copied");
+                                    }, 2000);
+                                });
+                                </script>
+                                
+                                
+                              
+                            </div>
                 </div>
                 
-               <div class="required">
-                <h2>Required Operating System:</h2>
-                <ul>
-                    <li>– Windows 11 and Windows 10 (64-bit) versions V21H1, and V20H2</li>
-                    <li>– Windows Server versions V1607 (2016) and V1809 (2019)</li>
-                </ul>
-            
-                <div class="requirements-header">System & Hardware Requirements for Windows</div>
-                <table>
-                    <tr>
-                        <th>Operating System</th>
-                        <td>Windows 10 & 11 (64-bit only)</td>
-                    </tr>
-                    <tr>
-                        <th>Processor</th>
-                        <td>2GHz Intel i5 Core, Gen 6th</td>
-                    </tr>
-                    <tr>
-                        <th>RAM</th>
-                        <td>8GB or higher of RAM</td>
-                    </tr>
-                    <tr>
-                        <th>Monitor</th>
-                        <td>Monitor with 1920x1080 pixels or higher resolution</td>
-                    </tr>
-                    <tr>
-                        <th>Graphics</th>
-                        <td>NVidia Dedicated GPU or AMD GPU</td>
-                    </tr>
-                </table>
-               </div>
-
-                <div class="instalasi">
-                    <h1>Instalasi</h1>
-                    <ol>
-                        <li>Download Photoshop 2023 Full Version</li>
-                        <li>Selanjutnya, extract file <span class="highlight">Photoshop.2023.v24.7.0 x64.rar</span> menggunakan <a href="https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-701.exe"> Winrar terbaru</a></li>
-                        <li>Password RAR <span class="debot">Debotz</span> </li>
-                        <li>Extract file <span class="highlight">Adobe.Photoshop.2023.u10.Multilingual.iso</span> menggunakan Winrar terbaru</li>
-                        <li>Setelah selesai, jalankan file autoplay.exe</li>
-                        <li>Proses instalasi akan berjalan secara otomatis. Kamu hanya perlu menunggu beberapa menit hingga semua komponen selesai diinstal.</li>
-                        <li>Setelah instalasi selesai, aplikasi sudah siap digunakan. Kamu bisa langsung menjalankannya dan menikmati fitur-fitur yang disediakan.</li>
-                       
-                    </ol>
-                    <h1>Note</h1>
-                    <ul>
-                        <li>Firefly, Generative Fill, Neural Filters adalah fitur online dan sudah di patch, tidak berfungsi pada CRACK. Silahkan beli lisensi original jika ingin menggunakan fitur tersebut.</li>
-                    
-                       
-                    </ul>
-                    <div class="download-info">
-                        <p>Download Adobe Photoshop 2023.v24.7.0 x64 Full Version <br>(Size: 2.35 GB)</p>
-                        
-                        <div class="download-links">
-                            <a href="https://sfl.gl/8lCh">Pixeldrain</a> | <a style="display: none;" href="#">Mediafire</a> | <a href="https://sfl.gl/UacsuJQb">MEGA</a>
-                        </div>
-                        
-                        <div class="download-links">
-                            Password RAR: <a class="copy-icon" id="copyText">Debotz</a>
-                        </div>
-                        
-                        <script>
-                            document.getElementById("copyText").addEventListener("click", function(e) {
-                            e.preventDefault(); // Mencegah default behavior link
-                            var textToCopy = "Debotz"; // Teks yang ingin disalin
-
-                            // Membuat elemen textarea sementara untuk menyalin teks
-                            var tempInput = document.createElement("textarea");
-                            tempInput.value = textToCopy;
-                            document.body.appendChild(tempInput);
-                            
-                            // Memilih teks dan menyalinnya ke clipboard
-                            tempInput.select();
-                            document.execCommand("copy");
-
-                            // Menghapus elemen textarea sementara
-                            document.body.removeChild(tempInput);
-
-                            // Mengubah ikon clipboard menjadi tanda centang
-                            var copyIcon = document.getElementById("copyText");
-                            copyIcon.classList.add("copied");
-
-                            // Mengembalikan ikon menjadi clipboard setelah 2 detik
-                            setTimeout(function() {
-                                copyIcon.classList.remove("copied");
-                            }, 2000);
-                        });
-                        </script>
-                        
-                        
-                      
-                    </div>
+              
                 </div>
                 
             </div>
@@ -201,6 +205,6 @@
             }
         });
     </script>
-    <script src="js/selengkapnnya.js"></script>
+    <script src="/js/garis3.js"></script>
 </body>
 </html>
