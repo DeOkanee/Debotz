@@ -116,61 +116,8 @@ nav ul li:hover .dropdown {
     margin-left: 20px;
 }
 
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block; /* Show hamburger icon */
-    }
 
-    .menu {
-        display: none; /* Hide menu by default on mobile */
-        flex-direction: column; /* Stack the menu items */
-        background-color: #303030;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Below the header */
-        left: 0;
-    }
 
-    .menu li {
-        margin-left: 0;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    nav ul li .dropdown {
-        position: static;
-        background-color: #444;
-
-    }
-}
-@media (max-width: 440px) {
-    .hamburger {
-        display: block; /* Show hamburger icon */
-    }
-
-    .menu {
-        display: none; /* Hide menu by default on mobile */
-        flex-direction: column; /* Stack the menu items */
-        background-color: #303030;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Below the header */
-        left: 0;
-    }
-
-    .menu li {
-        margin-left: 0;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    nav ul li .dropdown {
-        position: static;
-        background-color: #444;
-
-    }
-}
 
 .search-bar {
     margin-top: 80px;
@@ -191,6 +138,7 @@ nav ul li:hover .dropdown {
     margin-right: 20px;
 }
 .post-title {
+    
     color: #ffffff; /* Warna default teks */
     text-decoration: none; /* Menghilangkan garis bawah */
 }
@@ -208,6 +156,8 @@ nav ul li:hover .dropdown {
     background-color: #2a2a2a;
     padding: 20px;
     margin-bottom: 20px;
+    overflow: hidden; /* Mencegah konten keluar dari elemen .post */
+    word-wrap: break-word;
 }
 .post h2 {
     margin-top: 0;
@@ -290,24 +240,22 @@ footer p {
 
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 767px) {
-    /* Atur header untuk tampilan lebih kecil */
-    header {
-        padding: 10px 0;
+    .logo {
+        font-size: 18px; /* Mengurangi ukuran font logo */
     }
 
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
+    .menu {
+        display: none; /* Sembunyikan menu pada ukuran layar kecil */
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan ikon hamburger */
     }
 
     nav ul li {
-        margin-left: 0;
-    }
 
-    nav ul li .dropdown {
-        left: 0;
+        margin-left: 0; /* Kurangi margin antar item menu */
     }
-
     .container {
         width: 90%;
 
@@ -347,15 +295,40 @@ footer p {
 /* Ukuran layar 440px ke bawah */
 @media (max-width: 440px) {
     /* Atur ulang logo agar lebih kecil */
-
     .logo {
-        font-size: 20px;
+        font-size: 18px; /* Lebih kecil lagi untuk layar kecil */
     }
 
-    .logo span,
-    .logo .com {
-        font-size: 16px;
+    .hamburger {
+        font-size: 24px; /* Sesuaikan ukuran ikon hamburger */
     }
+
+    nav ul li {
+    text-align: right;
+        padding: 5px 0;
+        padding-right: 70px;
+    }
+
+    /* Jika menu ditampilkan (misalnya setelah klik hamburger), 
+       atur posisi dan ukuran menu agar responsif */
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+
+    nav ul li .dropdown {
+        position: static; 
+        background: none;
+        margin: 0;
+    }
+
+
 
     /* Atur ukuran gambar agar lebih kecil */
     .app-icon {
@@ -389,6 +362,9 @@ footer p {
 
     .software-icon p {
         font-size: 15px;
+    }
+    .software-icon .logo2{
+        font-size: 18px;
     }
 
     /* Atur ulang footer */
