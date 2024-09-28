@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #1a1a1a;
     color: #ffffff;
-    width: 100%;
+
 }
 header {
     background-color: #2a2a2a;
@@ -310,11 +310,12 @@ footer p {
 
     .container {
         width: 90%;
+
     }
 
     /* Tampilan search bar */
     .search-bar {
-        margin-top: 60px; /* Sesuaikan jarak header */
+        margin-top: 80px; /* Sesuaikan jarak header */
         width: 90%;
     }
 
@@ -322,15 +323,24 @@ footer p {
         flex-direction: column; /* Kolom berurutan vertikal */
         margin-top: -1px;
     }
+    .post h2 {
+        font-size: 18px;
+    }
 
     .left-column {
         margin-right: 0;
         width: 100%;
     }
-
+    .left-column h1{
+      font-size: 24px;
+    }
     .right-column {
         margin-top: 20px;
         width: 90%;
+    }
+    .software-icon img {
+        width: 100px;
+        height: 100px;
     }
 }
 
