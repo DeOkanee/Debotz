@@ -1,74 +1,154 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
+ /* DEOXY Was Here */
+ @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ :root {
+     --font-SpaceMono: 'Space Mono', monospace;
+     --font-DelaGothicOne: 'Arial', sans-serif;
+ }
+
+ body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+     background-color: #242424;
+ }
+
+ .form {
+     --background: #d3d3d3;
+     --input-focus: #2d8cf0;
+     --font-color: #323232;
+     --font-color-sub: #666;
+     --bg-color: #fff;
+     --main-color: #5e5e5e;
+     padding: 20px 0;
+     background: var(--background);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 20px;
+     border-radius: 5px;
+     border: 2px solid var(--main-color);
+     box-shadow: 4px 4px var(--main-color);
     width: 100%;
-    max-width: 400px;
-}
+    margin: 0 25px;
+ }
 
-.login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
+ .form > p {
+     font-family: var(--font-DelaGothicOne);
+     color: var(--font-color);
+     font-weight: 700;
+     font-size: 28px;
+     margin-bottom: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+ }
 
-.login-container input[type="text"],
-.login-container input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+ .form > p > span {
+     font-family: var(--font-SpaceMono);
+     color: var(--font-color-sub);
+     font-weight: 600;
+     font-size: 17px;
+ }
 
-.login-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
+ .separator {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 5px;
+     margin: 10px 0;
+ }
 
-.login-container button:hover {
-    background-color: #45a049;
-}
+ .separator > div {
+     width: 100px;
+     height: 3px;
+     border-radius: 5px;
+     background-color: var(--font-color-sub);
+ }
 
-.g_id_signin {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
+ .separator > span {
+     color: var(--font-color);
+     font-family: var(--font-SpaceMono);
+     font-weight: 600;
+ }
 
-@media screen and (max-width: 440px) {
-    .login-container {
-        padding: 10px;
-        max-width: 90%;
-    }
+ .form > input {
+     width: 70%;
+     height: 40px;
+     border-radius: 5px;
+     border: 2px solid var(--main-color);
+     background-color: var(--bg-color);
+     box-shadow: 4px 4px var(--main-color);
+     font-size: 15px;
+     font-weight: 600;
+     color: var(--font-color);
+     padding: 5px 10px;
+     outline: none;
+     box-sizing: border-box;
+ }
 
-    .login-container h2 {
-        font-size: 20px;
-    }
-}
+ .oauthButton {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 5px;
+     width: 50%;
+     height: 40px;
+     border-radius: 5px;
+     border: 2px solid var(--main-color);
+     background-color: var(--bg-color);
+     box-shadow: 4px 4px var(--main-color);
+     font-size: 16px;
+     font-weight: 600;
+     color: var(--font-color);
+     cursor: pointer;
+     transition: all 250ms;
+     position: relative;
+     overflow: hidden;
+     z-index: 1;
+ }
 
-@media screen and (min-width: 1000px) {
-    .login-container {
-        max-width: 500px;
-    }
-}
+ .oauthButton::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 0;
+     background-color: #212121;
+     z-index: -1;
+     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+     transition: all 250ms;
+ }
+
+ .oauthButton:hover {
+     color: #e8e8e8;
+ }
+
+ .oauthButton:hover::before {
+     width: 100%;
+ }
+
+ .icon {
+     width: 1.5rem;
+     height: 1.5rem;
+ }
+
+ @media (min-width: 440px) {
+     .form {
+      
+         max-width: 400px;
+     }
+ }
+
+ @media (min-width: 1000px) {
+     .form {
+         max-width: 500px;
+     }
+ }
