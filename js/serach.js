@@ -24,12 +24,28 @@ const apps = [
         fullDescription: "Dengan alat seperti layers, filters, dan adjustments, pengguna dapat memanipulasi gambar, menghapus objek, dan menambahkan efek visual. Photoshop digunakan oleh fotografer, seniman, dan desainer untuk berbagai proyek, mulai dari penyuntingan foto hingga pembuatan ilustrasi digital, menjadikannya salah satu alat paling populer dalam industri kreatif."
     },
     {
+        name: "Adobe Premiere Pro 2021.15.4.0.47.x64 Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727483951/ctasvv4gzdwged8woccm.png",
+        link: "software/Video Editor/Premiere-Pro 2021.html",
+        date: "Up 29 September 2024",
+        shortDescription: "Adobe Premiere Pro 2021 Full Version 64 Bit Final. Pada awal tahun 2021, Adobe merilis versi terbaru untuk beberapa software yang termasuk ke dalam jajaran koleksi Adobe Creative Cloud-nya. Tidak terkecuali software video editing populer yaitu Adobe Premiere Pro CC 2021.",
+        fullDescription: "Dengan adopsi sistem non-linier, pengguna dapat memodifikasi video secara bebas tanpa mengganggu bagian lainnya."
+    },
+    {
         name: "Adobe Premiere Pro 2023.v23.6.0.65.x64 Full Version",
         image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727483951/ctasvv4gzdwged8woccm.png",
         link: "software/Video Editor/Premiere-Pro 2023.html",
         date: "Up 10 September 2024",
         shortDescription: "Adobe Premiere Pro adalah perangkat lunak pengeditan video non-linier yang memungkinkan penggunanya untuk mengedit, mengatur, dan mengolah video secara profesional.",
         fullDescription: "Dengan adopsi sistem non-linier, pengguna dapat memodifikasi video secara bebas tanpa mengganggu bagian lainnya."
+    },
+    {
+        name: "Adobe After Effects 2021. 118.4.0.41.x64 Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727484486/ktofcyn2izmqrnzscscj.png",
+        link: "software/Video Editor/After-Effect 2021.html",
+        date: "Up 29 September 2024",
+        shortDescription: "Adobe After Effects 2021 Full Version yang merupakan software untuk editing video dengan hasil yang sudah tidak di ragukan lagi. Jika anda pengguna adobe premiere, tentu untuk hasil maksimal dengan effect-effect yang keren, wajib menggunakan Adobe After Effects 2021 Full Version ini sebagai pelengkapnya.",
+        fullDescription: "Aplikasi ini sering digunakan dalam pascaproduksi film, televisi, dan permainan video."
     },
     {
         name: "Adobe After Effects 2022.22.6.0. x64 Full Version",
@@ -46,6 +62,14 @@ const apps = [
         date: "Up 10 September 2024",
         shortDescription: "Adobe After Effects adalah aplikasi perangkat lunak yang digunakan untuk membuat efek visual, grafik gerak, dan pengomposisian video.",
         fullDescription: "Aplikasi ini sering digunakan dalam pascaproduksi film, televisi, dan permainan video."
+    },
+    {
+        name: "Adobe Audition 2021. 14.4.0.38.x64 Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727581196/zns0glhemme2mevy6y57.png",
+        link: "software/Video Editor/Audition-21.html",
+        date: "Up 29 September 2024",
+        shortDescription: "Adobe Audition 2021 Free Download Full Version Windows 64 Bit. Audition adalah software audio editing paling populer dan salah satu pilihan terbaik untuk meningkatkan kualitas audio pada musik atau video kalian.",
+        fullDescription: "Software buatan Adobe ini memiliki performa tinggi dan beragam tools canggih yang membuat kalian tidak akan kesulitan untuk mengedit, merestorasi, mixing dan memberikan berbagai effect pada audio."
     },
     {
         name: "Internet Download Manager (IDM) v6.39 Full Version [Pakai Nama Sendiri]",
