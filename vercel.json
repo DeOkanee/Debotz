@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/Disain-Grafis.html" }
+      { "source": "/(.*)", "destination": "/Login.html" }
     ]
   }
   

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Debotz">
+    <meta name="keywords" content="Aplikasi, Adobe, Software" />
+    <meta property="og:title" content="Debotz">
+    <meta property="og:description"
+        content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda. Dengan beragam pilihan aplikasi dan tools, Debotz berfokus pada memberikan solusi praktis untuk bisnis, pengembangan, dan penggunaan sehari-hari. Semua software yang tersedia dapat diunduh dengan mudah, dengan dukungan teknis yang andal dan pembaruan terbaru untuk memastikan performa optimal." />
+
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png">
+    <meta property="og:url" content="#">
+    <meta property="og:site_name" content="Debotz">
+    <title>Debotz-Login</title>
+    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
+        type="image/x-icon" />
+        <link rel="stylesheet" href="../css/Login/Profile.css">
+
+</head>
+<body>
+
+<div class="profile-container">
+    <img id="userImage" src="" alt="User Image">
+    <h1 id="userName">Nama Pengguna</h1>
+    <p id="userEmail">Email Pengguna</p>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        document.getElementById('userName').textContent = user.name;
+        document.getElementById('userEmail').textContent = user.email;
+        document.getElementById('userImage').src = user.picture;
+    } else {
+        // Jika belum login, arahkan ke halaman login
+        window.location.href = "index.html";
+    }
+
+    function logout() {
+        localStorage.removeItem('user');
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
