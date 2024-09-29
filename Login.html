@@ -36,15 +36,9 @@
       <div
         id="g_id_onload"
         data-client_id="401943700498-hvht2ri0fp01vel82gtrvcdc47uq29h6.apps.googleusercontent.com"
-      
         data-callback="handleCredentialResponse"
-       
       ></div>
-      <div
-        class="g_id_signin"
-        data-type="standard"
-       
-      ></div>
+      <div class="g_id_signin" data-type="standard"></div>
 
       <div class="separator">
         <div></div>
@@ -52,7 +46,7 @@
         <div></div>
       </div>
 
-      <input type="text" placeholder="Username" name="Username" required/>
+      <input type="text" placeholder="Username" name="Username" required />
       <input type="email" placeholder="Email" name="Email" required />
 
       <button class="oauthButton" type="submit">
@@ -75,6 +69,7 @@
       </button>
     </form>
     <script>
+      // Google Sign-In handler
       function handleCredentialResponse(response) {
         const responsePayload = decodeJwtResponse(response.credential);
 
@@ -91,6 +86,7 @@
         window.location.href = "/Admin/Profile.html";
       }
 
+      // Decode JWT token
       function decodeJwtResponse(token) {
         var base64Url = token.split(".")[1];
         var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -106,39 +102,48 @@
         return JSON.parse(jsonPayload);
       }
 
+      // Manual login handler
       document
         .getElementById("login-form")
         .addEventListener("submit", function (e) {
-          // e.preventDefault(); // Hapus baris ini
+          e.preventDefault();
 
-          // Ambil nilai input
           var Username = this.elements["Username"].value;
           var Email = this.elements["Email"].value;
 
-          // Store username dan email di localStorage
-          localStorage.setItem("Username", Username);
-          localStorage.setItem("Email", Email);
+          // Send data to Google Sheets
+          fetch(this.action, {
+            method: "POST",
+            body: new FormData(this),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+              // Display success toast
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                },
+              });
 
-          // Tampilkan toast success
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            },
-          });
-
-          Toast.fire({
-            icon: "success",
-            title: "Signed in successfully",
-          }).then(() => {
-            // Redirect setelah toast
-            window.location.href = "/Disain-Grafis.html";
-          });
+              Toast.fire({
+                icon: "success",
+                title: "Signed in successfully",
+              }).then(() => {
+                // Redirect after toast
+                window.location.href = "/Admin/Profile.html";
+              });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              // Handle error here
+            });
         });
     </script>
   </body>
