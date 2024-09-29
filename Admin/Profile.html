@@ -25,34 +25,31 @@
     </div>
 
     <script>
-     document.addEventListener('DOMContentLoaded', function() {
-  // Check for Google user data
+    document.addEventListener('DOMContentLoaded', function() {
+  // Cek data user Google
   var googleUser = JSON.parse(localStorage.getItem("googleUser"));
+  // Cek data user manual
+  var manualUser = JSON.parse(localStorage.getItem("manualUser"));
+  
   if (googleUser && googleUser.name && googleUser.email) {
     document.getElementById("user-name").textContent = googleUser.name;
     document.getElementById("user-email").textContent = googleUser.email;
     document.getElementById("login-type").textContent = "Google Login";
+  } else if (manualUser && manualUser.name && manualUser.email) {
+    document.getElementById("user-name").textContent = manualUser.name;
+    document.getElementById("user-email").textContent = manualUser.email;
+    document.getElementById("login-type").textContent = "Manual Login";
   } else {
-    // If no Google user data, check URL parameters for manual login
-    var urlParams = new URLSearchParams(window.location.search);
-    var Username = urlParams.get('Username');
-    var Email = urlParams.get('Email');
-    
-    if (Username && Email) {
-      document.getElementById("user-name").textContent = Username;
-      document.getElementById("user-email").textContent = Email;
-      document.getElementById("login-type").textContent = "Manual Login";
-    } else {
-      // If no data found, redirect to login page
-      window.location.href = "/Login.html";
-    }
+    // Jika tidak ada data login, redirect ke halaman login
+    window.location.href = "/Login.html";
   }
 });
 
 function logout() {
-  // Clear Google user data
+  // Hapus semua data user
   localStorage.removeItem("googleUser");
-  // Redirect to login page
+  localStorage.removeItem("manualUser");
+  // Redirect ke halaman login
   window.location.href = "/Login.html";
 }
     </script>
