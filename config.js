@@ -1,1 +1,9 @@
-const CLIENT_ID = "401943700498-hvht2ri0fp01vel82gtrvcdc47uq29h6.apps.googleusercontent.com";
+
+
+    // Kirim data menggunakan fetch
+    fetch("https://script.google.com/macros/s/AKfycby9j139EglEGRYG7hU1SHsHjKgA_wcWjaZTq9OYdZNRqqaruovnHnkFG3qPY7F1Adsh/exec", {
+        method: "POST",
+        body: formData,
+        enctype: "multipart/form-data",
+    })
+   
