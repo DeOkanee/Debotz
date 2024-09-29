@@ -291,6 +291,9 @@ footer p {
        text-align: center;
     
     }
+    #Search{
+        margin-top: 10px;
+    }
     .search-bar input {
         width: 90%;
         padding: 15px;
