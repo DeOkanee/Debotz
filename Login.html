@@ -52,8 +52,8 @@
         <div></div>
       </div>
 
-      <input type="text" placeholder="Username" name="Username" />
-      <input type="email" placeholder="Email" name="Email" />
+      <input type="text" placeholder="Username" name="Username" required/>
+      <input type="email" placeholder="Email" name="Email" required />
 
       <button class="oauthButton" type="submit">
         Continue
@@ -112,12 +112,12 @@
           // e.preventDefault(); // Hapus baris ini
 
           // Ambil nilai input
-          var username = this.elements["Username"].value;
-          var email = this.elements["Email"].value;
+          var Username = this.elements["Username"].value;
+          var Email = this.elements["Email"].value;
 
           // Store username dan email di localStorage
-          localStorage.setItem("Username", username);
-          localStorage.setItem("Email", email);
+          localStorage.setItem("Username", Username);
+          localStorage.setItem("Email", Email);
 
           // Tampilkan toast success
           const Toast = Swal.mixin({

@@ -33,12 +33,12 @@
       }
 
       // Populate user information
-      var username = localStorage.getItem("Username");
-      var email = localStorage.getItem("Email");
+      var Username = localStorage.getItem("Username");
+      var Email = localStorage.getItem("Email");
 
-      if (username && email) {
-        document.getElementById("user-name").textContent = username;
-        document.getElementById("user-email").textContent = email;
+      if (Username && Email)  {
+        document.getElementById("user-name").textContent = Username;
+        document.getElementById("user-email").textContent = Email;
       } else {
         // If no data found, redirect to login page
         window.location.href = "/Login.html";
