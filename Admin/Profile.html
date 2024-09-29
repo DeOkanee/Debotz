@@ -6,17 +6,12 @@
     <meta property="og:title" content="Debotz" />
     <meta name="keywords" content="Aplikasi, Adobe, Software" />
     <meta property="og:description" content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda." />
-    <title>Debotz - Login-Success</title>
-    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
+    <title>Debotz - Profile</title>
     <link rel="stylesheet" href="../css/Login/Profile.css" />
 </head>
 <body>
     <div class="profile-container">
-        <img
-            id="profile-pic"
-            src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
-            alt="Profile Picture"
-        />
+        <img id="profile-pic" src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" alt="Profile Picture" />
         <h1>Login Successful</h1>
         <p id="welcome-message">Welcome, <span id="user-name"></span>!</p>
         <p>Email: <span id="user-email"></span></p>
@@ -27,7 +22,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Cek data user Google
-            var googleUser = JSON.parse(localStorage.getItem("userData")); // Perbarui sesuai dengan kunci yang digunakan di login
+            var googleUser = JSON.parse(localStorage.getItem("userData"));
             // Cek data user manual
             var manualUser = JSON.parse(localStorage.getItem("manualUser"));
             
@@ -47,8 +42,8 @@
 
         function logout() {
             // Hapus semua data user
-            localStorage.removeItem("userData"); // Menghapus data Google
-            localStorage.removeItem("manualUser"); // Menghapus data manual
+            localStorage.removeItem("userData");
+            localStorage.removeItem("manualUser");
             // Redirect ke halaman login
             window.location.href = "/Login.html";
         }
