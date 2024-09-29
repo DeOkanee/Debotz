@@ -33,24 +33,33 @@
       }
 
       // Populate user information
-      var Username = localStorage.getItem("Username");
-      var Email = localStorage.getItem("Email");
+      // Populate user information
+var Username = localStorage.getItem("Username");
+var Email = localStorage.getItem("Email");
 
-      if (Username && Email)  {
-        document.getElementById("user-name").textContent = Username;
-        document.getElementById("user-email").textContent = Email;
-      } else {
-        // If no data found, redirect to login page
-        window.location.href = "/Login.html";
-      }
+if (Username && Email) {
+  document.getElementById("user-name").textContent = Username;
+  document.getElementById("user-email").textContent = Email;
+} else {
+  // Check for Google user data
+  var googleUser = JSON.parse(localStorage.getItem("googleUser"));
+  if (googleUser && googleUser.name && googleUser.email) {
+    document.getElementById("user-name").textContent = googleUser.name;
+    document.getElementById("user-email").textContent = googleUser.email;
+  } else {
+    // If no data found, redirect to login page
+    window.location.href = "/Login.html";
+  }
+}
 
-      function logout() {
-        // Clear any stored user data
-        localStorage.removeItem("Username");
-        localStorage.removeItem("Email");
-        // Redirect to login page
-        window.location.href = "/Login.html";
-      }
+function logout() {
+  // Clear all stored user data
+  localStorage.removeItem("Username");
+  localStorage.removeItem("Email");
+  localStorage.removeItem("googleUser");
+  // Redirect to login page
+  window.location.href = "/Login.html";
+}
     </script>
   </body>
 </html>
