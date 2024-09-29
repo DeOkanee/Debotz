@@ -1,171 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Debotz" />
     <meta name="keywords" content="Aplikasi, Adobe, Software" />
-    <meta
-      property="og:description"
-      content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda."
-    />
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
-    />
+    <meta property="og:description" content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda." />
+    <meta property="og:image" content="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" />
     <title>Debotz - Login</title>
-    <link
-      rel="icon"
-      href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
-      type="image/x-icon"
-    />
+    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/Login/Login.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-  </head>
-  <body>
-    <form
-      class="form"
-      id="login-form"
-      action="https://script.google.com/macros/s/AKfycby9j139EglEGRYG7hU1SHsHjKgA_wcWjaZTq9OYdZNRqqaruovnHnkFG3qPY7F1Adsh/exec"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <p>Welcome,<span>sign in to continue</span></p>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</head>
+<body>
+    <form class="form" id="login-form" action="#" method="post">
+        <p>Welcome,<span>sign in to continue</span></p>
 
-      <div
-        id="g_id_onload"
-        data-client_id="401943700498-hvht2ri0fp01vel82gtrvcdc47uq29h6.apps.googleusercontent.com"
-      
-        data-callback="handleCredentialResponse"
-       
-      ></div>
-      <div
-        class="g_id_signin"
-        data-type="standard"
-       
-      ></div>
+        <div id="g_id_onload" data-client_id="401943700498-hvht2ri0fp01vel82gtrvcdc47uq29h6.apps.googleusercontent.com" data-callback="handleCredentialResponse"></div>
+        <div class="g_id_signin" data-type="standard"></div>
 
-      <div class="separator">
-        <div></div>
-        <span>OR</span>
-        <div></div>
-      </div>
+        <div class="separator">
+            <div></div>
+            <span>OR</span>
+            <div></div>
+        </div>
 
-      <input type="text" placeholder="Username" name="Username" />
-      <input type="email" placeholder="Email" name="Email"  />
+        <input type="text" placeholder="Username" name="Username" />
+        <input type="email" placeholder="Email" name="Email" />
 
-      <button class="oauthButton" type="submit">
-        Continue
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="m6 17 5-5-5-5"></path>
-          <path d="m13 17 5-5-5-5"></path>
-        </svg>
-      </button>
+        <button class="oauthButton" type="submit">Continue
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 17 5-5-5-5"></path>
+                <path d="m13 17 5-5-5-5"></path>
+            </svg>
+        </button>
     </form>
+
     <script>
-document.getElementById("login-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+        // Fungsi untuk menangani respons setelah login dengan Google
+        function handleCredentialResponse(response) {
+            const data = jwt_decode(response.credential); // Dekode token
+            // Simpan data pengguna ke localStorage
+            localStorage.setItem("userData", JSON.stringify({
+                name: data.name,
+                email: data.email,
+            }));
 
-    var Username = this.elements["Username"].value;
-    var Email = this.elements["Email"].value;
-
-    // Validasi: Cek jika Username atau Email kosong
-    if (!Username || !Email) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Data Kosong',
-            text: 'Mohon isi data!',
-        });
-        return; // Hentikan eksekusi lebih lanjut
-    }
-
-    console.log("Attempting to log in with:", Username, Email);
-
-    // Tampilkan loading indicator
-    Swal.fire({
-        title: 'Logging in...',
-        allowOutsideClick: false,
-        didOpen: () => {
-            Swal.showLoading();
-        }
-    });
-
-    // Kirim data ke Google Sheets
-    fetch(this.action, {
-        method: "POST",
-        body: new FormData(this),
-    })
-    .then((response) => {
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
-        return response.text(); // Tetap menggunakan text() untuk melihat respons mentah
-    })
-    .then((text) => {
-        console.log("Raw response:", text);
-        // Simpan data login manual di localStorage terlepas dari respons server
-        localStorage.setItem("manualUser", JSON.stringify({
-            name: Username,
-            email: Email
-        }));
-
-        // Coba parse JSON jika mungkin, tapi jangan throw error jika gagal
-        let data;
-        try {
-            data = JSON.parse(text);
-        } catch (error) {
-            console.warn("Response is not valid JSON, proceeding anyway");
-            data = { success: true, message: "Login processed" };
-        }
-
-        // Tutup loading indicator
-        Swal.close();
-
-        // Tampilkan toast sukses
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            },
-        });
-
-        Toast.fire({
-            icon: "success",
-            title: "Signed in successfully",
-        }).then(() => {
-            // Redirect setelah toast
+            // Redirect ke halaman profil setelah login
             window.location.href = "/Admin/Profile.html";
-        });
-    })
-    .catch((error) => {
-        console.error("Error details:", error);
-        // Tutup loading indicator
-        Swal.close();
-        // Tampilkan pesan error
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error: ' + error.message,
-        });
-    });
-});
+        }
 
+        // Menangani pengiriman form secara manual
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var Username = this.elements["Username"].value;
+            var Email = this.elements["Email"].value;
+
+            // Validasi: Cek jika Username atau Email kosong
+            if (!Username || !Email) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Data Kosong',
+                    text: 'Mohon isi data!',
+                });
+                return; // Hentikan eksekusi lebih lanjut
+            }
+
+            console.log("Attempting to log in with:", Username, Email);
+
+            // Tampilkan loading indicator
+            Swal.fire({
+                title: 'Logging in...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Simpan data login manual ke localStorage
+            localStorage.setItem("manualUser", JSON.stringify({
+                name: Username,
+                email: Email
+            }));
+
+            // Tutup loading indicator
+            Swal.close();
+
+            // Tampilkan toast sukses
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                },
+            });
+
+            Toast.fire({
+                icon: "success",
+                title: "Signed in successfully",
+            }).then(() => {
+                // Redirect setelah toast
+                window.location.href = "/Admin/Profile.html";
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
