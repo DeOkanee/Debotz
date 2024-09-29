@@ -380,7 +380,9 @@ footer p {
     .search-bar input{
         border-radius: 6px;
     }
-
+    #Search{
+        margin-top: 10px;
+    }
     /* Tampilan teks dan tombol lebih kecil */
     .post h2 {
         font-size: 18px;
