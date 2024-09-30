@@ -189,8 +189,8 @@
         };
         localStorage.setItem("userData", JSON.stringify(userData));
 
-        // Redirect ke halaman Profile.html setelah login berhasil
-        window.location.href = "Admin/Profile.html";
+        // Tampilkan informasi pengguna setelah login
+        showUserInfo(userData);
     }
 
     // Fungsi untuk decode JWT
@@ -209,13 +209,28 @@
         const userData = localStorage.getItem("userData");
 
         if (userData) {
-            // Pengguna sudah login, arahkan ke halaman profile langsung
-            window.location.href = "Admin/Profile.html";
+            // Pengguna sudah login, tampilkan informasi pengguna
+            showUserInfo(JSON.parse(userData));
         } else {
             // Jika pengguna belum login, tampilkan widget login Google
             const googleLoginDiv = document.getElementById('g_id_onload');
             googleLoginDiv.style.display = 'block';  // Menampilkan pop-up login Google
         }
+    }
+
+    // Fungsi untuk menampilkan informasi pengguna di halaman
+    function showUserInfo(userData) {
+        // Sembunyikan tombol login Google
+        const googleLoginDiv = document.getElementById('g_id_onload');
+        googleLoginDiv.style.display = 'none';
+
+        // Tampilkan nama dan foto pengguna di halaman
+        const userInfo = document.createElement('div');
+        userInfo.innerHTML = `
+            <p>Welcome, ${userData.name}!</p>
+            <img src="${userData.picture}" alt="Profile Picture" style="width: 50px; border-radius: 50%;">
+        `;
+        document.body.appendChild(userInfo);
     }
 </script>
 
