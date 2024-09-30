@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/Aktivasi/list/KMS-Auto.css">
     <link rel="stylesheet" href="/css/komentar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <header>
@@ -147,82 +148,17 @@
                         </div>
                 </div>
                 
-               
-    <div class="form-komentar">
-        <textarea id="komentarBaru" placeholder="Tulis komentar Anda di sini..."></textarea>
-        <button onclick="tambahKomentar()">Kirim Komentar</button>
-    </div>
+               <!-- Form untuk menambah komentar baru -->
+        <div class="comment-form">
+            <input type="text" id="username" placeholder="Nama Anda" required>
+            <textarea id="commentText" placeholder="Tambahkan komentar..." required></textarea>
+            <button onclick="addComment()">Kirim Komentar</button>
+        </div>
 
-    <div id="daftarKomentar"></div>
-            
-                <script>
-                    const API_URL = 'https://jsonplaceholder.typicode.com/comments';
-
-async function ambilKomentar() {
-    try {
-        const response = await fetch(API_URL);
-        const komentar = await response.json();
-        return komentar.slice(0, 10); // Batasi ke 10 komentar teratas
-    } catch (error) {
-        console.error('Error mengambil komentar:', error);
-        return [];
-    }
-}
-
-async function tambahKomentar() {
-    const komentarText = document.getElementById('komentarBaru').value;
-    if (!komentarText.trim()) return;
-
-    const komentar = {
-        body: komentarText,
-        email: 'user@example.com', // Email dummy
-        name: 'Pengguna' // Nama dummy
-    };
-
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            body: JSON.stringify(komentar),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        });
-        const komentarBaru = await response.json();
-        tampilkanKomentarTunggal(komentarBaru);
-        document.getElementById('komentarBaru').value = '';
-    } catch (error) {
-        console.error('Error menambahkan komentar:', error);
-    }
-}
-
-function tampilkanKomentarTunggal(komentar) {
-    const daftarKomentar = document.getElementById('daftarKomentar');
-    const elemenKomentar = buatElemenKomentar(komentar);
-    daftarKomentar.appendChild(elemenKomentar);
-}
-
-function buatElemenKomentar(komentar) {
-    const div = document.createElement('div');
-    div.className = 'komentar';
-    div.innerHTML = `
-        <h3>${komentar.name}</h3>
-        <p>${komentar.body}</p>
-        <small>${komentar.email}</small>
-    `;
-    return div;
-}
-
-async function inisialisasiKomentar() {
-    const komentar = await ambilKomentar();
-    const daftarKomentar = document.getElementById('daftarKomentar');
-    daftarKomentar.innerHTML = '';
-    komentar.forEach(k => tampilkanKomentarTunggal(k));
-}
-
-// Inisialisasi komentar saat halaman dimuat
-inisialisasiKomentar();
-                </script>
+        <!-- Tempat menampilkan komentar -->
+        <div id="commentList"></div>
                 
+               
             </div>
             <div class="right-column">
                 <div class="software-icon">
@@ -248,5 +184,76 @@ inisialisasiKomentar();
     </script>
  <script src="/js/garis3.js"></script>
     <script src="/js/show.js"></script>
+    <script src="/js/komentar.js">
+        // Import Firebase functions
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCTqd8AyojtVwyzWpnCWT2UJknEHEm3_Tk",
+    authDomain: "debotz-1752a.firebaseapp.com",
+    projectId: "debotz-1752a",
+    storageBucket: "debotz-1752a.appspot.com",
+    messagingSenderId: "652148256733",
+    appId: "1:652148256733:web:de3c060cd18cef6e8b1034",
+    measurementId: "G-0TBXQXBMBR"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+// Fungsi untuk menambahkan komentar ke Firebase
+function addComment() {
+    const username = document.getElementById('username').value;
+    const commentText = document.getElementById('commentText').value;
+
+    if (username === '' || commentText === '') {
+        alert('Harap isi nama dan komentar!');
+        return;
+    }
+
+    const commentRef = ref(database, 'comments/' + Date.now()); // Menggunakan timestamp sebagai ID unik
+    set(commentRef, {
+        username: username,
+        text: commentText,
+        timestamp: new Date().toISOString()
+    });
+
+    document.getElementById('username').value = '';
+    document.getElementById('commentText').value = '';
+}
+
+// Fungsi untuk menampilkan komentar dari Firebase
+function displayComments() {
+    const commentList = document.getElementById('commentList');
+    commentList.innerHTML = ''; // Mengosongkan daftar komentar
+
+    const commentRef = ref(database, 'comments');
+    onValue(commentRef, (snapshot) => {
+        const comments = snapshot.val();
+        commentList.innerHTML = ''; // Bersihkan tampilan sebelumnya
+
+        for (let id in comments) {
+            let comment = comments[id];
+            let commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+
+            commentDiv.innerHTML = `
+                <h4>${comment.username}</h4>
+                <p>${comment.text}</p>
+                <p><small>${new Date(comment.timestamp).toLocaleString()}</small></p>
+            `;
+
+            commentList.appendChild(commentDiv);
+        }
+    });
+}
+
+// Tampilkan komentar saat halaman dimuat
+window.onload = displayComments;
+
+    </script>     
 </body>
 </html>
