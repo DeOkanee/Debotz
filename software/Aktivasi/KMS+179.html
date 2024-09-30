@@ -14,6 +14,7 @@
     <title>Debotz</title>
     <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/Aktivasi/list/KMS-Auto.css">
+    <link rel="stylesheet" href="/css/komentar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -146,7 +147,85 @@
                         </div>
                 </div>
                 
-               
+                <div class="form-komentar">
+                    <textarea id="komentarBaru" placeholder="Tulis komentar Anda di sini..."></textarea>
+                    <button onclick="tambahKomentar()">Kirim Komentar</button>
+                </div>
+            
+                <div id="daftarKomentar"></div>
+            
+                <script>
+                    function tambahKomentar(parentId = null) {
+                        const komentarText = parentId ? 
+                            document.getElementById(`balasan-${parentId}`).value :
+                            document.getElementById('komentarBaru').value;
+                        
+                        if (!komentarText.trim()) return;
+            
+                        const komentar = {
+                            id: Date.now(),
+                            text: komentarText,
+                            parentId: parentId,
+                            timestamp: new Date().toLocaleString()
+                        };
+            
+                        let komentar_tersimpan = JSON.parse(localStorage.getItem('komentar')) || [];
+                        komentar_tersimpan.push(komentar);
+                        localStorage.setItem('komentar', JSON.stringify(komentar_tersimpan));
+            
+                        if (!parentId) {
+                            document.getElementById('komentarBaru').value = '';
+                            tampilkanKomentarTunggal(komentar);
+                        } else {
+                            const parentElement = document.getElementById(`komentar-${parentId}`);
+                            const balasanElement = buatElemenKomentar(komentar, true);
+                            parentElement.appendChild(balasanElement);
+                        }
+                    }
+            
+                    function tampilkanKomentar() {
+                        const komentar_tersimpan = JSON.parse(localStorage.getItem('komentar')) || [];
+                        const daftarKomentar = document.getElementById('daftarKomentar');
+                        daftarKomentar.innerHTML = '';
+            
+                        const komentar_utama = komentar_tersimpan.filter(k => !k.parentId);
+            
+                        komentar_utama.forEach(komentar => {
+                            tampilkanKomentarTunggal(komentar);
+                        });
+                    }
+            
+                    function tampilkanKomentarTunggal(komentar) {
+                        const daftarKomentar = document.getElementById('daftarKomentar');
+                        const elemenKomentar = buatElemenKomentar(komentar);
+                        daftarKomentar.appendChild(elemenKomentar);
+            
+                        const komentar_tersimpan = JSON.parse(localStorage.getItem('komentar')) || [];
+                        const balasan = komentar_tersimpan.filter(k => k.parentId === komentar.id);
+                        balasan.forEach(balasan => {
+                            const elemenBalasan = buatElemenKomentar(balasan, true);
+                            elemenKomentar.appendChild(elemenBalasan);
+                        });
+                    }
+            
+                    function buatElemenKomentar(komentar, isBalasan = false) {
+                        const div = document.createElement('div');
+                        div.id = `komentar-${komentar.id}`;
+                        div.className = isBalasan ? 'komentar balasan' : 'komentar';
+                        div.innerHTML = `
+                            <p>${komentar.text}</p>
+                            <small>${komentar.timestamp}</small>
+                            <div>
+                                <textarea id="balasan-${komentar.id}" placeholder="Tulis balasan..."></textarea>
+                                <button onclick="tambahKomentar(${komentar.id})">Balas</button>
+                            </div>
+                        `;
+                        return div;
+                    }
+            
+                    // Tampilkan komentar saat halaman dimuat
+                    tampilkanKomentar();
+                </script>
                 
             </div>
             <div class="right-column">

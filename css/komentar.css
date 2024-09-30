@@ -1,0 +1,20 @@
+
+.komentar {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+}
+.balasan {
+  margin-left: 20px;
+}
+.form-komentar {
+  margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+}
+button {
+  cursor: pointer;
+}
