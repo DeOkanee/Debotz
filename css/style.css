@@ -118,6 +118,7 @@ nav ul li:hover .dropdown {
 .menu li {
     position: relative;
     margin-left: 20px;
+
 }
 
 
@@ -271,7 +272,7 @@ footer p {
         flex-direction: column; /* Ubah orientasi menjadi vertikal */
     }
 
-   
+
     .menu .dropdown  {
         position: static; 
       background: none;
@@ -360,7 +361,10 @@ footer p {
         background-color: #3a3a3a; /* Warna latar belakang menu */
         flex-direction: column; /* Ubah orientasi menjadi vertikal */
     }
-
+    #menu li{
+        padding: 11px 0;
+ 
+    }
    
 
     nav ul li .dropdown {
@@ -377,7 +381,7 @@ footer p {
     }
     /* Tampilan search bar */
     .search-bar {
-        margin-top: 90px; /* Sesuaikan jarak header */
+        margin-top: 60px; /* Sesuaikan jarak header */
         text-align: center;
     }
     .search-bar input{
