@@ -1,7 +1,7 @@
-import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+import { getDatabase, ref, set, onValue, push, get } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 
-// Konfigurasi Firebase Anda
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCTqd8AyojtVwyzWpnCWT2UJknEHEm3_Tk",
     authDomain: "debotz-1752a.firebaseapp.com",
@@ -12,98 +12,104 @@ const firebaseConfig = {
     measurementId: "G-0TBXQXBMBR"
 };
 
-// Inisialisasi Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+// Helper function to encode the ID for use in selectors
+function encodeId(id) {
+    return id.replace(/[/]/g, '_');
+}
+
 // Fungsi untuk menambahkan komentar ke Firebase
-export function addComment(parentId = null) {
-    const username = document.getElementById('username').value; // Untuk komentar utama
+export function addComment() {
+    const username = document.getElementById('username').value;
     const commentText = document.getElementById('commentText').value;
 
-    // Validasi input untuk komentar utama dan balasan
     if (username === '' || commentText === '') {
         alert('Harap isi nama dan komentar agar pengguna lain mengetahui siapa yang membalas komentar!');
         return;
     }
 
-    // Mendapatkan referensi ke lokasi komentar atau balasan
-    const commentRef = ref(database, parentId ? `comments/${parentId}/replies/${Date.now()}` : `comments/${Date.now()}`);
+    const commentRef = push(ref(database, 'comments'));
 
     set(commentRef, {
         username: username,
         text: commentText,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        replies: {}
     })
     .then(() => {
-        // Setelah berhasil disimpan, tampilkan komentar
         displayComments();
     })
     .catch((error) => {
         console.error("Error writing new comment to Firebase Database", error);
     });
 
-    // Reset input setelah menambah komentar
-    if (parentId === null) {
-        document.getElementById('username').value = '';
-        document.getElementById('commentText').value = '';
-    } else {
-        const replyInput = document.getElementById(`replyText-${parentId}`);
-        const replyUsernameInput = document.getElementById(`replyUsername-${parentId}`);
-        if (replyInput && replyUsernameInput) {
-            replyInput.value = ''; // Reset input balasan jika ada
-            replyUsernameInput.value = ''; // Reset input username balasan
-        }
+    document.getElementById('username').value = '';
+    document.getElementById('commentText').value = '';
+}
+
+// Fungsi untuk membuat elemen komentar
+function createCommentElement(comment, commentId, level = 0, replyToName = null) {
+    let commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment');
+    commentDiv.style.marginLeft = `${level * 20}px`;
+
+    const encodedId = encodeId(commentId);
+
+    let replyToHTML = '';
+    if (replyToName) {
+        replyToHTML = `<p><small>Membalas ke: ${replyToName}</small></p>`;
+    }
+
+    commentDiv.innerHTML = `
+    <div class="comment-box">
+        <h4 class="comment-username">${comment.username}</h4>
+        ${replyToHTML}
+        <p class="comment-text">${comment.text}</p>
+        <p class="comment-timestamp"><small>${new Date(comment.timestamp).toLocaleString()}</small></p>
+        <button class="comment-reply-btn" onclick="showReplyForm('${encodedId}', '${comment.username}')">Balas</button>
+        <div id="replyForm-${encodedId}" class="reply-form" style="display: none;">
+            <input type="text" id="replyUsername-${encodedId}" class="reply-input" placeholder="Nama Anda" required autocomplete="off">
+            <input type="text" id="replyText-${encodedId}" class="reply-input" placeholder="Tulis balasan..." required autocomplete="off">
+            <button class="reply-submit-btn" onclick="addReply('${commentId}', '${comment.username}')">Kirim Balasan</button>
+        </div>
+        <div id="replies-${encodedId}" class="replies-container"></div>
+    </div>
+`;
+
+
+    return commentDiv;
+}
+
+// Fungsi rekursif untuk menampilkan komentar dan balasan
+function displayCommentAndReplies(comment, commentId, parentElement, level = 0) {
+    const commentElement = createCommentElement(comment, commentId, level, comment.replyTo);
+    parentElement.appendChild(commentElement);
+
+    const encodedId = encodeId(commentId);
+    const repliesContainer = commentElement.querySelector(`#replies-${encodedId}`);
+
+    if (comment.replies) {
+        Object.entries(comment.replies).forEach(([replyId, reply]) => {
+            displayCommentAndReplies(reply, `${commentId}/${replyId}`, repliesContainer, level + 1);
+        });
     }
 }
 
-// Fungsi untuk menampilkan komentar dari Firebase
+// Fungsi untuk menampilkan komentar dan balasan dari Firebase
 export function displayComments() {
     const commentList = document.getElementById('commentList');
-    commentList.innerHTML = ''; // Mengosongkan daftar komentar
+    commentList.innerHTML = '';
 
     const commentRef = ref(database, 'comments');
     onValue(commentRef, (snapshot) => {
         const comments = snapshot.val();
         if (comments) {
-            for (let id in comments) {
-                let comment = comments[id];
-                let commentDiv = document.createElement('div');
-                commentDiv.classList.add('comment');
-
-                // Menampilkan komentar utama
-                commentDiv.innerHTML = `
-                    <h4>${comment.username}</h4>
-                    <p>${comment.text}</p>
-                    <p><small>${new Date(comment.timestamp).toLocaleString()}</small></p>
-                    <button onclick="showReplyForm('${id}', '${comment.username}')">Balas</button>
-                    <div id="replyForm-${id}" style="display: none;">
-                        <p>Membalas: <strong>${comment.username}</strong></p>
-                        <input type="text" id="replyUsername-${id}" placeholder="Nama Anda" required>
-                        <input type="text" id="replyText-${id}" placeholder="Tulis balasan..." required>
-                        <button onclick="addReply('${id}')">Kirim Balasan</button>
-                    </div>
-                    <div id="replies-${id}"></div>
-                `;
-
-                // Menampilkan balasan jika ada
-                const repliesDiv = document.getElementById(`replies-${id}`);
-                if (comment.replies && repliesDiv) {
-                    for (let replyId in comment.replies) {
-                        let reply = comment.replies[replyId];
-                        let replyDiv = document.createElement('div');
-                        replyDiv.classList.add('reply');
-                        replyDiv.innerHTML = `
-                            <h5>${reply.username}</h5>
-                            <p>${reply.text}</p>
-                            <p><small>${new Date(reply.timestamp).toLocaleString()}</small></p>
-                        `;
-                        repliesDiv.appendChild(replyDiv);
-                    }
-                }
-
-                commentList.appendChild(commentDiv);
-            }
+            Object.entries(comments).forEach(([commentId, comment]) => {
+                displayCommentAndReplies(comment, commentId, commentList);
+            });
         } else {
             commentList.innerHTML = '<p>Tidak ada komentar yang tersedia.</p>';
         }
@@ -111,41 +117,44 @@ export function displayComments() {
 }
 
 // Fungsi untuk menampilkan form balasan
-window.showReplyForm = function(commentId, username) {
-    const replyForm = document.getElementById(`replyForm-${commentId}`);
+window.showReplyForm = function(encodedId, replyToName) {
+    const replyForm = document.getElementById(`replyForm-${encodedId}`);
     if (replyForm) {
         replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+        const replyText = document.getElementById(`replyText-${encodedId}`);
+        replyText.placeholder = `Balas ke ${replyToName}...`;
     }
 }
 
 // Fungsi untuk menambahkan balasan
-window.addReply = function(commentId) {
-    const replyUsername = document.getElementById(`replyUsername-${commentId}`).value; // Mengambil nama pengguna untuk balasan
-    const replyText = document.getElementById(`replyText-${commentId}`).value;
+window.addReply = function(commentId, replyToName) {
+    const encodedId = encodeId(commentId);
+    const replyUsername = document.getElementById(`replyUsername-${encodedId}`).value;
+    const replyText = document.getElementById(`replyText-${encodedId}`).value;
 
-    // Validasi input balasan
     if (replyUsername === '' || replyText === '') {
         alert('Harap isi nama dan balasan agar pengguna lain mengetahui siapa yang membalas komentar!');
         return;
     }
 
-    const replyRef = ref(database, `comments/${commentId}/replies/${Date.now()}`);
+    const replyRef = push(ref(database, `comments/${commentId.replace(/\//g, '/replies/')}/replies`));
 
     set(replyRef, {
         username: replyUsername,
         text: replyText,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        replies: {},
+        replyTo: replyToName
     })
     .then(() => {
-        displayComments(); // Tampilkan komentar dan balasan yang terbaru
+        displayComments();
     })
     .catch((error) => {
         console.error("Error writing new reply to Firebase Database", error);
     });
 
-    // Reset input setelah menambah balasan
-    document.getElementById(`replyUsername-${commentId}`).value = '';
-    document.getElementById(`replyText-${commentId}`).value = '';
+    document.getElementById(`replyUsername-${encodedId}`).value = '';
+    document.getElementById(`replyText-${encodedId}`).value = '';
 }
 
 // Tampilkan komentar saat halaman dimuat

@@ -1,101 +1,240 @@
-/* Menyusun bagian komentar */
+/* Comment Section Styles */
 .comment-section {
-    width: 500px;
-    margin: 20px auto; /* Menambahkan jarak di atas dan bawah */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px; /* Membulatkan sudut */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
-    background-color: #f9f9f9; /* Warna latar belakang yang lembut */
+    background-color: #424242;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Gaya untuk form komentar */
-.comment-form {
+.comment-section h2 {
+    font-size: 1.5em;
     margin-bottom: 20px;
+    color: orange;
+    text-align: center;
+    padding-bottom: 10px;
+    width: 50%;
+    margin: 0 auto 25px auto;
 }
 
-.comment-form input, .comment-form textarea {
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
     width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px; /* Membulatkan sudut input */
-    transition: border-color 0.3s; /* Efek transisi untuk border */
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #181818;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
-/* Efek hover untuk input */
-.comment-form input:focus, .comment-form textarea:focus {
-    border-color: #66afe9; /* Warna border saat fokus */
-    outline: none; /* Menghilangkan outline default */
+.comment-form textarea {
+    font-size: 1.1em;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-/* Gaya untuk setiap komentar */
-.comment {
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
+.comment-form input[type="text"]::placeholder,
+.comment-form textarea::placeholder {
+    color: #888888;
 }
 
-.comment:last-child {
-    border-bottom: none; /* Menghilangkan garis bawah untuk komentar terakhir */
+.comment-form input[type="text"]:focus,
+.comment-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
 }
 
-.comment h4 {
-    margin: 0;
-    font-weight: bold; /* Membuat nama pengguna lebih menonjol */
-    color: #333; /* Warna teks lebih gelap */
-}
-
-.comment p {
-    margin: 5px 0;
-    color: #555; /* Warna teks untuk komentar */
-}
-
-/* Gaya untuk tombol */
 .comment-form button {
-    background-color: #5cb85c; /* Warna hijau untuk tombol */
-    color: white; /* Teks putih */
+    padding: 10px 17px;
     border: none;
-    border-radius: 5px; /* Membulatkan sudut tombol */
-    padding: 10px 15px;
-    cursor: pointer; /* Menunjukkan kursor pointer saat hover */
-    transition: background-color 0.3s; /* Efek transisi untuk background */
-}
-
-/* Efek hover untuk tombol */
-.comment-form button:hover {
-    background-color: #4cae4c; /* Warna lebih gelap saat hover */
-}
-
-/* Gaya untuk form balasan */
-.reply {
-    padding-left: 20px; /* Memberikan indentasi untuk balasan */
-    border-left: 2px solid #66afe9; /* Garis di sebelah kiri balasan */
-    margin-top: 10px; /* Jarak atas untuk balasan */
-}
-
-.reply h5 {
-    margin: 0;
-    font-weight: normal; /* Menjadikan nama balasan tidak terlalu menonjol */
-    color: #007bff; /* Warna biru untuk nama balasan */
-}
-
-.reply p {
-    margin: 5px 0;
-    color: #666; /* Warna teks untuk balasan */
-}
-
-/* Gaya untuk tombol balasan */
-.reply button {
-    background-color: #0275d8; /* Warna biru untuk tombol balasan */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    width: 30%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efek hover untuk tombol balasan */
-.reply button:hover {
-    background-color: #0056b3; /* Warna lebih gelap saat hover */
+.comment-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#commentList {
+    margin: 0 10px;
+    margin-top: 20px;
+}
+
+.comment {
+    color: #181818;
+    background-color: #e2e2e2;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.comment .username {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.comment .comment-text {
+    font-size: 1em;
+    color: #333;
+    margin-left: 10px;
+}
+
+/* CSS BALASAN */
+.comment-box {
+    background-color: #f9f9f9;
+    padding: 1px 25px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.comment-box .comment-text {
+    font-size: 1.1em;
+}
+
+.comment-username {
+    font-size: 1.2em;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.comment-text {
+    font-size: 1em;
+    color: #505050;
+    margin-bottom: 8px;
+}
+
+.comment-timestamp small {
+    font-size: 0.85em;
+    color: #888888;
+}
+
+.comment-reply-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-reply-btn:hover {
+    background-color: #0056b3;
+}
+
+.reply-form {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+
+.reply-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.reply-submit-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.reply-submit-btn:hover {
+    background-color: #218838;
+}
+
+.replies-container {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 1000px) {
+    .comment-section {
+        padding: 10px;
+    }
+
+    .comment-section h2 {
+        width: 70%;
+        font-size: 1.3em;
+    }
+
+    .comment-form {
+        max-width: 90%;
+    }
+
+    .comment-box {
+        padding: 1px 20px;
+    }
+}
+
+@media (max-width: 440px) {
+    .comment-section {
+        padding: 15px;
+    }
+
+    .comment-section h2 {
+        width: 90%;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .comment-form input[type="text"],
+    .comment-form textarea {
+        padding: 10px;
+    }
+
+    .comment-form button {
+        padding: 8px 15px;
+    }
+
+    .comment-box {
+        padding: 1px 15px;
+    }
+
+    .comment-username {
+        font-size: 1.1em;
+    }
+
+    .comment-box .comment-text {
+        font-size: 1em;
+    }
+
+    .reply-input {
+        width: 100%;
+    }
+
+    .replies-container {
+        padding-left: 10px;
+    }
 }
