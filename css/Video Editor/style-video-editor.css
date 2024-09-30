@@ -330,7 +330,6 @@ footer a.privacy-link:hover {
         width: 100px;
         height: 100px;
     }
-}
 footer {
     font-size: 13px;
     padding: 15px 0;
@@ -344,6 +343,7 @@ footer a.privacy-link {
     margin-left: 5px;
     font-size: 13px;
 
+}
 }
 
 /* Ukuran layar 440px ke bawah */
