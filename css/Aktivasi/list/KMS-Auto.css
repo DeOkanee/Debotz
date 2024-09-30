@@ -327,6 +327,16 @@ footer p {
     margin: 0;
 }
 
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
     .logo {
@@ -410,6 +420,19 @@ footer p {
     .software-icon img {
         width: 100px;
         height: 100px;
+    }
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
+    }
+    
+    footer p {
+        padding: 0 15px;
+    }
+    
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
     }
 }
 
@@ -500,8 +523,20 @@ footer p {
         font-size: 18px;
     }
 
-    /* Atur ulang footer */
-    footer p {
-        font-size: 12px;
-    }
+ /* Atur ulang footer */
+ footer {
+    font-size: 12px;
+    padding: 12px 0;
+}
+
+footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+footer a.privacy-link {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+}
 }

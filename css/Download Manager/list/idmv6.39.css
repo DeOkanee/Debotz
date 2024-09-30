@@ -217,6 +217,10 @@ nav ul li:hover .dropdown {
 .fitur li {
   margin-bottom: 10px;
 }
+.fitur img {
+  width: 100%;
+  height: auto;
+}
 .highlight {
   color: #0066cc;
 }
@@ -287,17 +291,8 @@ a:hover {
   margin-top: 15px;
   text-align: center;
 }
-.download-links ol {
-  text-align: left;
-  margin-left: 30px;
-}
-.download-links .single {
-  text-align: left;
-  margin-left: 0;
-}
 .download-links a {
   margin: 0 5px;
-  text-align: left;
 }
 
 .download-info p {
@@ -330,6 +325,18 @@ footer {
 footer p {
   margin: 0;
 }
+
+footer a.privacy-link {
+  color: #fff;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
   .logo {
@@ -390,19 +397,17 @@ footer p {
   .post h2 {
     font-size: 18px;
   }
-  .download-links ol {
-    margin-left: 0;
-  }
-  .download-links .single {
-    text-align: left;
-    margin-left: 0;
-  }
+
   .left-column {
     margin-right: 0;
     width: 100%;
   }
   .left-column h1 {
     font-size: 24px;
+  }
+  .fitur img {
+    width: 100%;
+    height: auto;
   }
   .right-column {
     margin-top: 20px;
@@ -411,6 +416,19 @@ footer p {
   .software-icon img {
     width: 100px;
     height: 100px;
+  }
+  footer {
+    font-size: 13px;
+    padding: 15px 0;
+  }
+
+  footer p {
+    padding: 0 15px;
+  }
+
+  footer a.privacy-link {
+    margin-left: 5px;
+    font-size: 13px;
   }
 }
 
@@ -467,17 +485,15 @@ footer p {
   .post h2 {
     font-size: 18px;
   }
-
+  .fitur img {
+    width: 100%;
+    height: auto;
+  }
   .toggle-button {
     font-size: 14px;
     padding: 3px 8px;
   }
-  .download-links ol {
-    margin-left: 0;
-  }
-  .download-links .single {
-    margin-left: -10px;
-  }
+
   /* Ukuran kolom kanan pada tampilan kecil */
   .right-column {
     padding: 20px 15px;
@@ -497,7 +513,19 @@ footer p {
   }
 
   /* Atur ulang footer */
+  footer {
+    font-size: 12px;
+    padding: 12px 0;
+  }
+
   footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+
+  footer a.privacy-link {
+    display: block;
+    margin: 5px 0 0;
     font-size: 12px;
   }
 }

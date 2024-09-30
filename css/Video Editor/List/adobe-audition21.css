@@ -118,16 +118,7 @@ nav ul li:hover .dropdown {
     margin-left: 20px;
 }
 
-.search-bar {
-    margin-top: 80px;
-}
-.search-bar input {
-    width: 100%;
-    padding: 10px;
-    background-color: #3a3a3a;
-    border: none;
-    color: #ffffff;
-}
+
 .main-content {
     display: flex;
     margin-top: 80px;
@@ -159,22 +150,15 @@ nav ul li:hover .dropdown {
 }
 .post h2 {
     margin-top: 0;
+    font-size: 25px;
 }
 .post-meta {
     font-size: 14px;
     color: #888;
 }
-.toggle-button {
-    color: #ff8c00; /* Warna teks putih */
-    text-decoration: none; /* Menghilangkan garis bawah */
-    padding: 5px 10px; /* Padding untuk tombol */
-    border-radius: 5px; /* Membuat sudut tombol melengkung */
-    cursor: pointer;
+#short-text{
+    font-size: 16px;
 }
-.toggle-button:hover{
-    text-decoration: underline solid white;
-}
-
 .right-column {
     width: 100%;
     height: 100%;
@@ -222,8 +206,110 @@ nav ul li:hover .dropdown {
     font-weight: bold;
 }
 
+.fitur h1 {
+    color: #f8f8f8;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+.fitur ul {
+    padding-left: 20px;
+}
+.fitur li {
+    margin-bottom: 10px;
+}
+.highlight {
+    color: #0066cc;
+}
+.debot  {
+    color: #ffa500;
+}
+
+.required h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.required  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.required  li {
+    margin-bottom: 5px;
+}
+.required  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.required  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.required  th {
+    background-color: #1f1f1f;
+    font-weight: bold;
+}
+.required  tr:nth-child(even) {
+    background-color: #494949;
+}
+.requirements-header {
+    background-color: #494949;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.instalasi h1 {
+    color: #fff;
+}
+.instalasi ol {
+    padding-left: 20px;
+}
+.instalasi li {
+    margin-bottom: 10px;
+}
+.instalasi a {
+    color: #FFA500;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.download-info {
+    background-color: #444;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.download-links {
+    margin-top: 15px;
+    text-align: center;
+}
+.download-links a {
+    margin: 0 5px;
+}
+
+.download-info p{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.copy-icon::after {
+    content: "📋"; /* Ikon clipboard awal */
+    margin-left: 5px;
+    transition: content 0.3s ease; /* Animasi perubahan ikon */
+}
+
+/* Saat ikon berubah setelah disalin */
+.copy-icon.copied::after {
+    content: "✔"; /* Mengubah ikon menjadi tanda centang */
+    color: green; /* Memberikan warna hijau pada tanda centang */
+}
+
 footer {
-    margin-top: 200px;
+    margin-top: 50px;
     background-color: #222;
     color: #fff;
     text-align: center;
@@ -236,6 +322,16 @@ footer p {
     margin: 0;
 }
 
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
     .logo {
@@ -316,9 +412,20 @@ footer p {
         width: 100px;
         height: 100px;
     }
-    footer{
-        margin-top: 300px;
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
     }
+    
+    footer p {
+        padding: 0 15px;
+    }
+    
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
+    }
+    
 }
 
 /* Ukuran layar 440px ke bawah */
@@ -405,11 +512,20 @@ footer p {
         font-size: 18px;
     }
 
-    /* Atur ulang footer */
-    footer{
-        margin-top: 100px;
-    }
-    footer p {
-        font-size: 12px;
-    }
+/* Atur ulang footer */
+footer {
+    font-size: 12px;
+    padding: 12px 0;
+}
+
+footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+footer a.privacy-link {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+}
 }

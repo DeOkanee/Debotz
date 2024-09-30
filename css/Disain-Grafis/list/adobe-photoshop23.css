@@ -119,6 +119,7 @@ nav ul li:hover .dropdown {
 }
 
 
+
 .main-content {
     display: flex;
     margin-top: 80px;
@@ -147,6 +148,7 @@ nav ul li:hover .dropdown {
     margin-bottom: 20px;
     overflow: hidden; /* Mencegah konten keluar dari elemen .post */
     word-wrap: break-word;
+
 }
 .post h2 {
     margin-top: 0;
@@ -321,6 +323,18 @@ footer {
 footer p {
     margin: 0;
 }
+
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
     .logo {
@@ -400,6 +414,19 @@ footer p {
     .software-icon img {
         width: 100px;
         height: 100px;
+    }
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
+    }
+    
+    footer p {
+        padding: 0 15px;
+    }
+    
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
     }
 }
 
@@ -488,7 +515,19 @@ footer p {
     }
 
     /* Atur ulang footer */
-    footer p {
-        font-size: 12px;
-    }
+ footer {
+    font-size: 12px;
+    padding: 12px 0;
+}
+
+footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+footer a.privacy-link {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+}
 }
