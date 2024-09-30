@@ -1,11 +1,15 @@
+/* Menyusun bagian komentar */
 .comment-section {
     width: 500px;
-    margin: 0 auto;
+    margin: 20px auto; /* Menambahkan jarak di atas dan bawah */
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px; /* Membulatkan sudut */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+    background-color: #f9f9f9; /* Warna latar belakang yang lembut */
 }
 
+/* Gaya untuk form komentar */
 .comment-form {
     margin-bottom: 20px;
 }
@@ -15,18 +19,83 @@
     margin: 5px 0;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px; /* Membulatkan sudut input */
+    transition: border-color 0.3s; /* Efek transisi untuk border */
 }
 
+/* Efek hover untuk input */
+.comment-form input:focus, .comment-form textarea:focus {
+    border-color: #66afe9; /* Warna border saat fokus */
+    outline: none; /* Menghilangkan outline default */
+}
+
+/* Gaya untuk setiap komentar */
 .comment {
     border-bottom: 1px solid #eee;
     padding: 10px 0;
 }
 
+.comment:last-child {
+    border-bottom: none; /* Menghilangkan garis bawah untuk komentar terakhir */
+}
+
 .comment h4 {
     margin: 0;
+    font-weight: bold; /* Membuat nama pengguna lebih menonjol */
+    color: #333; /* Warna teks lebih gelap */
 }
 
 .comment p {
     margin: 5px 0;
+    color: #555; /* Warna teks untuk komentar */
+}
+
+/* Gaya untuk tombol */
+.comment-form button {
+    background-color: #5cb85c; /* Warna hijau untuk tombol */
+    color: white; /* Teks putih */
+    border: none;
+    border-radius: 5px; /* Membulatkan sudut tombol */
+    padding: 10px 15px;
+    cursor: pointer; /* Menunjukkan kursor pointer saat hover */
+    transition: background-color 0.3s; /* Efek transisi untuk background */
+}
+
+/* Efek hover untuk tombol */
+.comment-form button:hover {
+    background-color: #4cae4c; /* Warna lebih gelap saat hover */
+}
+
+/* Gaya untuk form balasan */
+.reply {
+    padding-left: 20px; /* Memberikan indentasi untuk balasan */
+    border-left: 2px solid #66afe9; /* Garis di sebelah kiri balasan */
+    margin-top: 10px; /* Jarak atas untuk balasan */
+}
+
+.reply h5 {
+    margin: 0;
+    font-weight: normal; /* Menjadikan nama balasan tidak terlalu menonjol */
+    color: #007bff; /* Warna biru untuk nama balasan */
+}
+
+.reply p {
+    margin: 5px 0;
+    color: #666; /* Warna teks untuk balasan */
+}
+
+/* Gaya untuk tombol balasan */
+.reply button {
+    background-color: #0275d8; /* Warna biru untuk tombol balasan */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efek hover untuk tombol balasan */
+.reply button:hover {
+    background-color: #0056b3; /* Warna lebih gelap saat hover */
 }
