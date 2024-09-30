@@ -1,87 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Debotz" />
     <meta name="keywords" content="Aplikasi, Adobe, Software" />
-    <meta property="og:description" content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda." />
+    <meta
+      property="og:description"
+      content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda."
+    />
     <title>Debotz - Profile</title>
     <link rel="stylesheet" href="../css/Login/Profile.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo"><span>de</span>botz<span class="com">.vercel.app</span></div>
-                <button class="hamburger" onclick="toggleMenu()">☰</button>
-                <ul id="menu" class="menu">
-                    <li>
-                        <a href="#" class="dropdown-toggle">APLIKASI <i class="bi bi-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li><a href="/Disain-Grafis.html">Desain Grafis</a></li>
-                            <li><a href="/software/Video-Editor.html">Video Editor</a></li>
-                            <li><a href="/software/Download-manager.html">Download Manager</a></li>
-                            <li><a href="/software/Aktivasi.html">Aktivasi</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">GAMES <i class="bi bi-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li><a href="software/Games.html">Action</a></li>
-                            <li><a href="#">-</a></li>
-                            <li><a href="#">-</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://saweria.co/Debotz">DONASI</a></li>
-                    <li><a href="#">TENTANG KAMI</a></li>
-                    <li><a href="#"><i class="bi bi-person-circle"></i></a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <span>de</span>botz<span class="com">.vercel.app</span>
+          </div>
+          <button class="hamburger" onclick="toggleMenu()">☰</button>
+          <ul id="menu" class="menu">
+            <li>
+              <a href="#" class="dropdown-toggle"
+                >APLIKASI <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul class="dropdown">
+                <li><a href="/Disain-Grafis.html">Desain Grafis</a></li>
+                <li><a href="/software/Video-Editor.html">Video Editor</a></li>
+                <li>
+                  <a href="/software/Download-manager.html">Download Manager</a>
+                </li>
+                <li><a href="/software/Aktivasi.html">Aktivasi</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle"
+                >GAMES <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul class="dropdown">
+                <li><a href="software/Games.html">Action</a></li>
+                <li><a href="#">-</a></li>
+                <li><a href="#">-</a></li>
+              </ul>
+            </li>
+            <li><a href="https://saweria.co/Debotz">DONASI</a></li>
+            <li><a href="#">TENTANG KAMI</a></li>
+            <li>
+              <a href="#"><i class="bi bi-person-circle"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div class="profile-container">
-        <img id="profile-pic" src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" alt="Profile Picture" />
-        <h1>Login Successful</h1>
-        <p id="welcome-message">Welcome, <span id="user-name"></span>!</p>
-        <p>Email: <span id="user-email"></span></p>
-        <p>Login Type: <span id="login-type"></span></p>
-        <button class="logout-btn" onclick="logout()">Logout</button>
+      <img
+        id="profile-pic"
+        src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
+        alt="Profile Picture"
+      />
+      <h1>Login Successful</h1>
+      <p id="welcome-message">Welcome, <span id="user-name"></span>!</p>
+      <p>Email: <span id="user-email"></span></p>
+      <p>Login Type: <span id="login-type"></span></p>
+      <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
-   
- 
+
     <script src="/js/garis3.js"></script>
     <script src="/js/show.js"></script>
-    <script>
-         document.addEventListener('DOMContentLoaded', function () {
-            // Cek data user Google
-            var googleUser = JSON.parse(localStorage.getItem("userData"));
-            // Cek data user manual
-            var manualUser = JSON.parse(localStorage.getItem("manualUser"));
-
-            if (googleUser && googleUser.name && googleUser.email) {
-                document.getElementById("user-name").textContent = googleUser.name;
-                document.getElementById("user-email").textContent = googleUser.email;
-                document.getElementById("login-type").textContent = "Google Login";
-                document.getElementById("profile-pic").src = googleUser.picture; // Ganti gambar profil
-            } else if (manualUser && manualUser.name && manualUser.email) {
-                document.getElementById("user-name").textContent = manualUser.name;
-                document.getElementById("user-email").textContent = manualUser.email;
-                document.getElementById("login-type").textContent = "Manual Login";
-            } else {
-                // Jika tidak ada data login, redirect ke halaman login
-                window.location.href = "/Login.html";
-            }
-        });
-
-        function logout() {
-            // Hapus semua data user
-            localStorage.removeItem("userData");
-            localStorage.removeItem("manualUser");
-            // Redirect ke halaman login
-            window.location.href = "/Login.html";
-        }
-    </script>
-</body>
+    <script src="/js/SC-Profile.js"></script>
+  </body>
 </html>
