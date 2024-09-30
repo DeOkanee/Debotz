@@ -126,13 +126,14 @@ nav ul li:hover .dropdown {
 
 
 .search-bar {
-    margin-top: 80px;
+    margin-top: 50px;
 }
 .search-bar input {
     width: 100%;
     padding: 10px;
     background-color: #3a3a3a;
     border: none;
+    border-radius: 6px;
     color: #ffffff;
 }
 .main-content {
@@ -244,6 +245,18 @@ footer p {
     margin: 0;
 }
 
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
+
 /* Ukuran layar 767px ke bawah */
 @media (max-width: 1000px) {
     .logo {
@@ -288,7 +301,7 @@ footer p {
 
     /* Tampilan search bar */
     .search-bar {
-        margin-top: 80px; /* Sesuaikan jarak header */
+        margin-top: 60px; /* Sesuaikan jarak header */
        text-align: center;
     
     }
@@ -328,6 +341,19 @@ footer p {
     .software-icon img {
         width: 100px;
         height: 100px;
+    }
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
+    }
+
+    footer p {
+        padding: 0 15px;
+    }
+
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
     }
 }
 
@@ -419,7 +445,19 @@ footer p {
     }
 
     /* Atur ulang footer */
+    footer {
+        font-size: 12px;
+        padding: 12px 0;
+    }
+
     footer p {
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+
+    footer a.privacy-link {
+        display: block;
+        margin: 5px 0 0;
         font-size: 12px;
     }
 }
