@@ -1,7 +1,7 @@
-import { getDatabase, ref, set, onValue, push, get } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCTqd8AyojtVwyzWpnCWT2UJknEHEm3_Tk",
     authDomain: "debotz-1752a.firebaseapp.com",
@@ -16,18 +16,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Helper function to encode the ID for use in selectors
+// Helper function to encode ID for selectors
 function encodeId(id) {
     return id.replace(/[/]/g, '_');
 }
 
-// Fungsi untuk menambahkan komentar ke Firebase
+// Function to add comment to Firebase
 export function addComment() {
     const username = document.getElementById('username').value;
     const commentText = document.getElementById('commentText').value;
 
     if (username === '' || commentText === '') {
-        alert('Harap isi nama dan komentar agar pengguna lain mengetahui siapa yang membalas komentar!');
+        alert('Harap isi nama dan komentar!');
         return;
     }
 
@@ -38,11 +38,9 @@ export function addComment() {
         text: commentText,
         timestamp: new Date().toISOString(),
         replies: {}
-    })
-    .then(() => {
+    }).then(() => {
         displayComments();
-    })
-    .catch((error) => {
+    }).catch((error) => {
         console.error("Error writing new comment to Firebase Database", error);
     });
 
@@ -50,7 +48,7 @@ export function addComment() {
     document.getElementById('commentText').value = '';
 }
 
-// Fungsi untuk membuat elemen komentar
+// Function to create comment element with delete button
 function createCommentElement(comment, commentId, level = 0, replyToName = null) {
     let commentDiv = document.createElement('div');
     commentDiv.classList.add('comment');
@@ -60,16 +58,18 @@ function createCommentElement(comment, commentId, level = 0, replyToName = null)
 
     let replyToHTML = '';
     if (replyToName) {
-        replyToHTML = `<p><small>Membalas ke: ${replyToName}</small></p>`;
+        replyToHTML = `<p class="membalas"><small>Membalas ke: ${replyToName}</small></p>`;
     }
 
     commentDiv.innerHTML = `
     <div class="comment-box">
+        <span class="delete-btn" onclick="deleteComment('${commentId}')">❌</span>
         <h4 class="comment-username">${comment.username}</h4>
         ${replyToHTML}
         <p class="comment-text">${comment.text}</p>
         <p class="comment-timestamp"><small>${new Date(comment.timestamp).toLocaleString()}</small></p>
         <button class="comment-reply-btn" onclick="showReplyForm('${encodedId}', '${comment.username}')">Balas</button>
+    
         <div id="replyForm-${encodedId}" class="reply-form" style="display: none;">
             <input type="text" id="replyUsername-${encodedId}" class="reply-input" placeholder="Nama Anda" required autocomplete="off">
             <input type="text" id="replyText-${encodedId}" class="reply-input" placeholder="Tulis balasan..." required autocomplete="off">
@@ -77,13 +77,11 @@ function createCommentElement(comment, commentId, level = 0, replyToName = null)
         </div>
         <div id="replies-${encodedId}" class="replies-container"></div>
     </div>
-`;
-
-
+    `;
     return commentDiv;
 }
 
-// Fungsi rekursif untuk menampilkan komentar dan balasan
+// Recursive function to display comments and replies
 function displayCommentAndReplies(comment, commentId, parentElement, level = 0) {
     const commentElement = createCommentElement(comment, commentId, level, comment.replyTo);
     parentElement.appendChild(commentElement);
@@ -93,12 +91,12 @@ function displayCommentAndReplies(comment, commentId, parentElement, level = 0) 
 
     if (comment.replies) {
         Object.entries(comment.replies).forEach(([replyId, reply]) => {
-            displayCommentAndReplies(reply, `${commentId}/${replyId}`, repliesContainer, level + 1);
+            displayCommentAndReplies(reply, `${commentId}/replies/${replyId}`, repliesContainer, level + 1);
         });
     }
 }
 
-// Fungsi untuk menampilkan komentar dan balasan dari Firebase
+// Function to display comments from Firebase
 export function displayComments() {
     const commentList = document.getElementById('commentList');
     commentList.innerHTML = '';
@@ -116,7 +114,7 @@ export function displayComments() {
     });
 }
 
-// Fungsi untuk menampilkan form balasan
+// Function to show reply form
 window.showReplyForm = function(encodedId, replyToName) {
     const replyForm = document.getElementById(`replyForm-${encodedId}`);
     if (replyForm) {
@@ -126,18 +124,18 @@ window.showReplyForm = function(encodedId, replyToName) {
     }
 }
 
-// Fungsi untuk menambahkan balasan
+// Function to add reply to Firebase
 window.addReply = function(commentId, replyToName) {
     const encodedId = encodeId(commentId);
     const replyUsername = document.getElementById(`replyUsername-${encodedId}`).value;
     const replyText = document.getElementById(`replyText-${encodedId}`).value;
 
     if (replyUsername === '' || replyText === '') {
-        alert('Harap isi nama dan balasan agar pengguna lain mengetahui siapa yang membalas komentar!');
+        alert('Harap isi nama dan balasan!');
         return;
     }
 
-    const replyRef = push(ref(database, `comments/${commentId.replace(/\//g, '/replies/')}/replies`));
+    const replyRef = push(ref(database, `comments/${commentId}/replies`));
 
     set(replyRef, {
         username: replyUsername,
@@ -145,11 +143,9 @@ window.addReply = function(commentId, replyToName) {
         timestamp: new Date().toISOString(),
         replies: {},
         replyTo: replyToName
-    })
-    .then(() => {
+    }).then(() => {
         displayComments();
-    })
-    .catch((error) => {
+    }).catch((error) => {
         console.error("Error writing new reply to Firebase Database", error);
     });
 
@@ -157,8 +153,23 @@ window.addReply = function(commentId, replyToName) {
     document.getElementById(`replyText-${encodedId}`).value = '';
 }
 
-// Tampilkan komentar saat halaman dimuat
+// Updated function to delete a comment or reply
+window.deleteComment = function(path) {
+    const confirmDelete = confirm("Apakah Anda yakin ingin menghapus komentar ini?");
+    if (confirmDelete) {
+        const commentRef = ref(database, `comments/${path}`);
+        remove(commentRef)
+            .then(() => {
+                displayComments();
+            })
+            .catch((error) => {
+                console.error("Error deleting comment from Firebase", error);
+            });
+    }
+}
+
+// Load comments on window load
 window.onload = displayComments;
 
-// Mengekspos fungsi addComment ke objek window
+// Expose addComment function to window
 window.addComment = addComment;
