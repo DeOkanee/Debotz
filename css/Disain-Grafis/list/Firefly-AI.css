@@ -1,0 +1,599 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+header {
+    background-color: #2a2a2a;
+    padding: 15px 0;
+    position: fixed; /* Membuat header tetap berada di atas */
+    top: 0;
+    left: 0;
+    width: 100%; /* Pastikan header menutupi seluruh lebar layar */
+    z-index: 999; /* Menjaga header tetap di atas elemen lain */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ffa500;
+}
+
+.logo .com {
+    color: #00ff00;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Menambahkan dekorasi teks saat hover */
+}
+
+nav ul li .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    top: 100%; /* Tempatkan dropdown tepat di bawah item menu */
+    left: 0;
+   
+    padding: 0;
+    margin: 0;
+    width: 250px;
+    z-index: 1000;
+}
+
+nav ul li .dropdown li {
+    width: 100%;
+}
+
+nav ul li .dropdown li a {
+    padding: 10px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #444;
+}
+
+nav ul li .dropdown li a:hover {
+    background-color: #555;
+}
+
+/* Menampilkan dropdown saat hover */
+nav ul li:hover .dropdown {
+    display: block;
+}
+.dropdown-toggle:hover + .dropdown,
+.dropdown:hover {
+    display: block; /* Tampilkan dropdown saat hover pada toggle atau dropdown */
+}
+/* Hamburger Icon */
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown only on small screens */
+}
+
+/* Menu for desktop */
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+
+
+.main-content {
+    display: flex;
+    margin-top: 80px;
+}
+.left-column {
+    flex: 2;
+    margin-right: 20px;
+}
+.post-title {
+    color: #ffffff; /* Warna default teks */
+    text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+.post-title:hover,
+.post-title:focus {
+    color: orange; /* Warna oranye saat hover atau fokus */
+}
+
+.post-title:active {
+    color: orangered; /* Warna saat diklik */
+}
+
+.post {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Mencegah konten keluar dari elemen .post */
+    word-wrap: break-word;
+
+}
+.post h2 {
+    margin-top: 0;
+    font-size: 25px;
+}
+.post-meta {
+    font-size: 14px;
+    color: #888;
+}
+#short-text{
+    font-size: 16px;
+}
+.right-column {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Pusatkan konten secara horizontal */
+    align-items: center; /* Pusatkan konten secara vertikal */
+    background-color: #2a2a2a;
+    padding: 35px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.app-icon {
+    width: 100px; /* Atur lebar sesuai kebutuhan */
+    height: auto; /* Mengatur tinggi secara otomatis */
+    margin-bottom: 10px; /* Jarak antara gambar dan judul */
+}
+
+.logo2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo2 span {
+    color: #ffa500;
+}
+
+.logo2 .com2 {
+    color: #00ff00;
+}
+.software-icon {
+    text-align: center;
+}
+
+.software-icon img {
+    width: 150px; /* Sesuaikan ukuran gambar ikon */
+    height: 150px;
+    margin-bottom: 10px; /* Spasi antara gambar dan teks */
+}
+
+.software-icon p {
+    font-size: 18px; /* Ukuran teks */
+    color: #ffffff; /* Warna teks hijau */
+    margin: 0;
+    font-weight: bold;
+}
+
+.fitur h1 {
+    color: #f8f8f8;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+.fitur ul {
+    padding-left: 20px;
+}
+.fitur li {
+    margin-bottom: 10px;
+}
+.highlight {
+    color: #0066cc;
+}
+.debot  {
+    color: #ffa500;
+}
+
+.required h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.required  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.required  li {
+    margin-bottom: 5px;
+}
+.required  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.required  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.required  th {
+    background-color: #1f1f1f;
+    font-weight: bold;
+}
+.required  tr:nth-child(even) {
+    background-color: #494949;
+}
+.requirements-header {
+    background-color: #494949;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.instalasi h1 {
+    color: #fff;
+}
+.instalasi ol {
+    padding-left: 20px;
+}
+.instalasi li {
+    margin-bottom: 10px;
+}
+.instalasi a {
+    color: #FFA500;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.download-info {
+    background-color: #444;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+
+.download-Firefly {
+   max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff25;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.download-Firefly h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+
+}
+.download-Firefly  table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.download-Firefly  th, td {
+    padding: 10px;
+    text-align: left;
+}
+.download-Firefly  th {
+    background-color: #ffffff34;
+    font-weight: bold;
+    color: #ffffff;
+}
+.download-Firefly  tr:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+.download-buttons {
+    display: flex;
+    gap: 10px;
+}
+.download-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #cc7b1f;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.download-buttons a:hover {
+    background-color: #218838;
+}
+@media (max-width: 440px) {
+    .download-Firefly {
+        padding: 10px;
+    }
+    .download-Firefly h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .download-Firefly th, td {
+        padding: 8px;
+    }
+    .download-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .download-buttons a {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+
+.download-password{
+    text-align: center;
+}
+.download-info p{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.copy-icon::after {
+    content: "📋"; /* Ikon clipboard awal */
+    margin-left: 5px;
+    transition: content 0.3s ease; /* Animasi perubahan ikon */
+}
+
+/* Saat ikon berubah setelah disalin */
+.copy-icon.copied::after {
+    content: "✔"; /* Mengubah ikon menjadi tanda centang */
+    color: green; /* Memberikan warna hijau pada tanda centang */
+}
+
+footer {
+    margin-top: 50px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 17px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
+/* Ukuran layar 767px ke bawah */
+@media (max-width: 1000px) {
+    .logo {
+        font-size: 20px; /* Mengurangi ukuran font logo */
+    }
+
+    .menu {
+        display: none; /* Sembunyikan menu pada ukuran layar kecil */
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan ikon hamburger */
+    }
+
+    nav ul li {
+        text-align: right;
+        padding: 10px 0;
+        padding-right: 70px;
+    }
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+    .menu .dropdown  {
+        position: static; 
+      background: none;
+    width: auto;
+    margin-right: 20px;
+    
+    }
+
+    .container {
+        width: 90%;
+
+    }
+
+    /* Tampilan search bar */
+    .search-bar {
+        margin-top: 80px; /* Sesuaikan jarak header */
+       text-align: center;
+    
+    }
+    .search-bar input {
+        width: 90%;
+        padding: 15px;
+        background-color: #3a3a3a;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+    .main-content {
+        flex-direction: column; /* Kolom berurutan vertikal */
+        margin-top: 90px;
+    }
+    .post h2 {
+        font-size: 18px;
+    }
+
+    .left-column {
+        margin-right: 0;
+        width: 100%;
+    }
+    .left-column h1{
+      font-size: 24px;
+    }
+    .right-column {
+        margin-top: 20px;
+       width: auto;
+    }
+    .software-icon img {
+        width: 100px;
+        height: 100px;
+    }
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
+    }
+    
+    footer p {
+        padding: 0 15px;
+    }
+    
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
+    }
+}
+
+/* Ukuran layar 440px ke bawah */
+@media (max-width: 440px) {
+    /* Atur ulang logo agar lebih kecil */
+    .logo {
+        font-size: 18px; /* Lebih kecil lagi untuk layar kecil */
+    }
+
+    .hamburger {
+        font-size: 24px; /* Sesuaikan ukuran ikon hamburger */
+    }
+
+    nav ul li {
+       
+        text-align: right;
+        padding: 7px 0;
+   margin-right: 70px;
+      
+    }
+    
+
+    /* Jika menu ditampilkan (misalnya setelah klik hamburger), 
+       atur posisi dan ukuran menu agar responsif */
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+   
+
+    nav ul li .dropdown {
+        position: static; 
+        background: none;
+        margin: 0;
+    }
+
+
+
+    /* Atur ukuran gambar agar lebih kecil */
+    .app-icon {
+        width: 80px;
+    }
+    /* Tampilan search bar */
+    .search-bar {
+        margin-top: 90px; /* Sesuaikan jarak header */
+        text-align: center;
+    }
+    .search-bar input{
+        border-radius: 6px;
+    }
+.main-content{
+    margin-top: 80px;
+}
+    /* Tampilan teks dan tombol lebih kecil */
+    .post h2 {
+        font-size: 18px;
+    }
+
+    .toggle-button {
+        font-size: 14px;
+        padding: 3px 8px;
+    }
+
+    /* Ukuran kolom kanan pada tampilan kecil */
+    .right-column {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .software-icon img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .software-icon p {
+        font-size: 15px;
+    }
+    .software-icon .logo2{
+        font-size: 18px;
+    }
+
+    /* Atur ulang footer */
+ footer {
+    font-size: 12px;
+    padding: 12px 0;
+}
+
+footer p {
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+footer a.privacy-link {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+}

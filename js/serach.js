@@ -23,13 +23,22 @@ const apps = [
         shortDescription: "Adobe Photoshop adalah perangkat lunak pengolah gambar yang memungkinkan pengguna untuk mengedit foto dan menciptakan desain grafis dengan presisi tinggi.",
         fullDescription: "Dengan alat seperti layers, filters, dan adjustments, pengguna dapat memanipulasi gambar, menghapus objek, dan menambahkan efek visual. Photoshop digunakan oleh fotografer, seniman, dan desainer untuk berbagai proyek, mulai dari penyuntingan foto hingga pembuatan ilustrasi digital, menjadikannya salah satu alat paling populer dalam industri kreatif."
     },
+    ,
     {
-        name: "Adobe Premiere Pro 2021.15.4.0.47.x64 Full Version",
-        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727483951/ctasvv4gzdwged8woccm.png",
-        link: "software/Video Editor/Premiere-Pro 2021.html",
-        date: "Up 29 September 2024",
-        shortDescription: "Adobe Premiere Pro 2021 Full Version 64 Bit Final. Pada awal tahun 2021, Adobe merilis versi terbaru untuk beberapa software yang termasuk ke dalam jajaran koleksi Adobe Creative Cloud-nya. Tidak terkecuali software video editing populer yaitu Adobe Premiere Pro CC 2021.",
-        fullDescription: "Dengan adopsi sistem non-linier, pengguna dapat memodifikasi video secara bebas tanpa mengganggu bagian lainnya."
+        name: "Adobe Photoshop 2023.v24.7.0 x64 Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727446873/vwibe1mldskbui6pzqzq.png",
+        link: "software/Disain Grafis/Adobe-Photoshop 2023.html",
+        date: "Up 9 September 2024",
+        shortDescription: "Adobe Photoshop adalah perangkat lunak pengolah gambar yang memungkinkan pengguna untuk mengedit foto dan menciptakan desain grafis dengan presisi tinggi.",
+        fullDescription: "Dengan alat seperti layers, filters, dan adjustments, pengguna dapat memanipulasi gambar, menghapus objek, dan menambahkan efek visual. Photoshop digunakan oleh fotografer, seniman, dan desainer untuk berbagai proyek, mulai dari penyuntingan foto hingga pembuatan ilustrasi digital, menjadikannya salah satu alat paling populer dalam industri kreatif."
+    },
+    {
+        name: "Adobe Firefly untuk Adobe Photoshop",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727865555/js7j0pvus60qskta9jn0.jpg",
+        link: "software/Disain Grafis/Firefly-AI.html",
+        date: "Up 2 Oktober 2024",
+        shortDescription: "Adobe Firefly untuk Adobe Photoshop versi lengkap, penginstal offline mandiri untuk Windows. Ini adalah keluarga model kecerdasan buatan generatif yang dibuat oleh Adobe untuk rangkaian Creative Cloud-nya.",
+        fullDescription: "Ini difokuskan pada pembuatan efek untuk gambar dan teks, dan salah satu USP utamanya adalah memodifikasi dan membuat gambar yang sadar konten di Photoshop."
     },
     {
         name: "Adobe Premiere Pro 2023.v23.6.0.65.x64 Full Version",
