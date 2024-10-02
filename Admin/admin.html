@@ -1,0 +1,114 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Debotz">
+    <meta name="keywords" content="Aplikasi, Adobe, Software" />
+    <meta property="og:title" content="Debotz">
+    <meta property="og:description"
+        content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda. Dengan beragam pilihan aplikasi dan tools, Debotz berfokus pada memberikan solusi praktis untuk bisnis, pengembangan, dan penggunaan sehari-hari. Semua software yang tersedia dapat diunduh dengan mudah, dengan dukungan teknis yang andal dan pembaruan terbaru untuk memastikan performa optimal." />
+
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png">
+    <meta property="og:url" content="#">
+    <meta property="og:site_name" content="Debotz">
+    <title>Debotz</title>
+    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/komentar.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><span>de</span>botz<span class="com">.vercel.app</span></div>
+                <button class="hamburger" onclick="toggleMenu()">☰</button> <!-- Ikon hamburger -->
+                <ul id="menu" class="menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">APLIKASI <i class="bi bi-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="/Disain-Grafis.html">Desain Grafis</a></li>
+                            <li><a href="/software/Video-Editor.html">Video Editor</a></li>
+                            <li><a href="/software/Download-manager.html">Download Manager</a></li>
+                            <li><a href="/software/Aktivasi.html">Aktivasi</a></li>
+                        </ul>
+                    </li>
+                  
+                    <li>
+                        <a href="#" class="dropdown-toggle">GAMES <i class="bi bi-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="software/Games.html">Action</a></li>
+                            <li><a href="#">-</a></li>
+                            <li><a href="#">-</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://saweria.co/Debotz">DONASI</a></li>
+                    <li><a href="#">TENTANG KAMI</a></li>
+                    <li><a href="/Admin/Profile.html"><i class="bi bi-person-circle"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="profile">
+            <img src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" alt="Admin Profile Picture">
+            <h1>Debotz</h1>
+            <a href="https://debotz.vercel.app/"><div class="logo"><span>de</span>botz<span class="com">.vercel.app</span></div></a>
+            
+          
+        </section>
+        <section class="about-debotz">
+            <h2 >About Debotz</h2>
+            <p>Debotz adalah situs web yang menyediakan berbagai aplikasi inovatif untuk memenuhi kebutuhan pengguna di berbagai bidang. Dengan Debotz, Anda dapat menemukan solusi yang tepat untuk membantu meningkatkan produktivitas dan kreativitas Anda.</p>
+            <ul>
+                <li><strong>Adapun:</strong>
+                    <ul>
+                        <li><b>Aplikasi Pengeditan: </b>Menawarkan alat pengeditan gambar, video, dan audio yang mudah digunakan untuk semua kalangan, mulai dari pemula hingga profesional.</li>
+                        <li><b>Tool: </b>Berbagai alat yang dirancang untuk membantu pengguna dalam menyelesaikan tugas dengan lebih efisien dan efektif.</li>
+                        <li><b>Dukungan Pelanggan: </b>Tim layanan pelanggan yang siap membantu Anda dengan segala pertanyaan dan masalah yang mungkin Anda hadapi.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Debotz bertujuan untuk menyediakan aplikasi yang tidak hanya fungsional tetapi juga user-friendly, sehingga pengguna dapat dengan mudah mengakses dan memanfaatkan teknologi untuk meningkatkan kinerja mereka.</p>
+        </section>
+    </main>
+    <div class="comment-section">
+        <h2>Tanya-tanya</h2>
+        <div class="comment-form">
+            <input type="text" id="username" placeholder="Nama Anda" required>
+            <textarea id="commentText" placeholder="Tulis komentar..." rows="4" required></textarea>
+            <button onclick="addComment()">Send</button>
+        </div>
+        <div id="commentList">
+            <!-- DISINI MUNCUL BALASAN REPLY NYA -->
+        </div>
+    </div>
+    
+    <footer>
+        <p><span style="color: orange;">De</span>botz © 2023 - 2024 All Rights Reserved &nbsp; | <a href="https://www.termsfeed.com/live/e5668dde-21d8-4053-8fe2-a78e946d0121" class="privacy-link">Kebijakan Privasi</a></p>
+    </footer>
+    <script src="/js/garis3.js"></script>
+    <script src="/js/show.js"></script>
+    <script type="module" src="/js/komentar.js"></script>
+    <script>
+        // script.js
+
+const profilePicture = document.querySelector('.profile img');
+
+profilePicture.addEventListener('click', () => {
+    // Display a modal window with more information about the admin
+    const modal = document.createElement('div');
+    modal.innerHTML = `
+        <h2>Admin Bio</h2>
+        <p>More information about the admin.</p>
+    `;
+    document.body.appendChild(modal);
+});
+    </script>
+</body>
+</html>

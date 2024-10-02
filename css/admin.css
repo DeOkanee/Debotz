@@ -1,0 +1,338 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3f3f3f;
+}
+
+header {
+    background-color: #2a2a2a;
+    padding: 15px 0;
+    position: fixed; /* Membuat header tetap berada di atas */
+    top: 0;
+    left: 0;
+    width: 100%; /* Pastikan header menutupi seluruh lebar layar */
+    z-index: 999; /* Menjaga header tetap di atas elemen lain */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #ffa500;
+}
+
+.logo .com {
+    color: #00ff00;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Menambahkan dekorasi teks saat hover */
+}
+
+nav ul li .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    top: 100%; /* Tempatkan dropdown tepat di bawah item menu */
+    left: 0;
+   
+    padding: 0;
+    margin: 0;
+    width: 250px;
+    z-index: 1000;
+}
+
+nav ul li .dropdown li {
+    width: 100%;
+}
+
+nav ul li .dropdown li a {
+    padding: 10px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #444;
+}
+
+nav ul li .dropdown li a:hover {
+    background-color: #555;
+}
+
+/* Menampilkan dropdown saat hover */
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown-toggle:hover + .dropdown,
+.dropdown:hover {
+    display: block; /* Tampilkan dropdown saat hover pada toggle atau dropdown */
+}
+/* Hamburger Icon */
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown only on small screens */
+}
+
+@media (max-width:1000px){
+    .logo {
+        font-size: 20px; /* Mengurangi ukuran font logo */
+    }
+
+    .menu {
+        display: none; /* Sembunyikan menu pada ukuran layar kecil */
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan ikon hamburger */
+    }
+
+    nav ul li {
+        text-align: right;
+        padding: 10px 0;
+        padding-right: 70px;
+    }
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+
+
+    .menu .dropdown  {
+        position: static; 
+      background: none;
+    width: auto;
+    margin-right: 20px;
+    
+    }
+}
+
+@media (max-width:440px){
+    .logo {
+        font-size: 18px; /* Lebih kecil lagi untuk layar kecil */
+    }
+
+    .hamburger {
+        font-size: 24px; /* Sesuaikan ukuran ikon hamburger */
+    }
+
+    nav ul li {
+       
+        text-align: right;
+        padding: 7px 0;
+   margin-right: 70px;
+      
+    }
+    
+
+    /* Jika menu ditampilkan (misalnya setelah klik hamburger), 
+       atur posisi dan ukuran menu agar responsif */
+    #menu {
+        position: absolute;
+        top: 60px; /* Di bawah header */
+        left: 0;
+        width: 100%; /* Tutupi seluruh lebar layar */
+        background-color: #3a3a3a; /* Warna latar belakang menu */
+        flex-direction: column; /* Ubah orientasi menjadi vertikal */
+    }
+    #menu li{
+        padding: 11px 0;
+ 
+    }
+   
+
+    nav ul li .dropdown {
+        position: static; 
+        background: none;
+        margin: 0;
+    }
+
+
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff31;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 90px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #ffffff; /* Border color */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.profile img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.profile h1 {
+    font-size: 2em;
+    margin: 10px 0;
+    color: white;
+}
+.profile a{
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+
+
+.about-debotz {
+    margin: 10px 20px;
+    color: white;
+
+}
+
+.about-debotz h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: rgb(255, 166, 0);
+    padding-left: 20px;
+}
+.about-debotz strong{
+    color: rgb(255, 166, 0);
+}
+.about-debotz ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.about-debotz li {
+    margin: 10px 0;
+}
+
+.about-debotz li ul {
+    margin: 10px 0 10px 20px; /* Indent sub-lists */
+}
+
+
+@media (max-width:1000px){
+    main {
+        width: 90%;
+        align-items: center;
+    }
+}
+
+@media (max-width:440px){
+    main {
+        width: 80%;
+        
+    }
+}
+
+footer {
+    margin-top: 50px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 17px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a.privacy-link {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+footer a.privacy-link:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
+@media (max-width:1000px){
+    footer {
+        font-size: 13px;
+        padding: 15px 0;
+    }
+
+    footer p {
+        padding: 0 15px;
+    }
+
+    footer a.privacy-link {
+        margin-left: 5px;
+        font-size: 13px;
+    }
+}
+@media (max-width:440px){
+    /* Atur ulang footer */
+    footer {
+        font-size: 12px;
+        padding: 12px 0;
+    }
+
+    footer p {
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+
+    footer a.privacy-link {
+        display: block;
+        margin: 5px 0 0;
+        font-size: 12px;
+    }
+}
