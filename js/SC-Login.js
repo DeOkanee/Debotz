@@ -8,7 +8,7 @@ function handleCredentialResponse(response) {
     }));
 
     // Redirect ke halaman profil setelah login
-    window.location.href = "/Admin/Profile.html";
+    window.location.href = "/Profile.html";
 }
 
 // Menangani pengiriman form secara manual
