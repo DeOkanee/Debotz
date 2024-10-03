@@ -162,27 +162,27 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Debotz</h2>
-        <p>Mau Apa lagi? tannya aj di bawah :v </p>
+        <p>Mau Apa lagi? tannya aj di bawah :v</p>
       </div>
     </div>
     <script>
-     const profilePicture = document.querySelector(".profile img");
-    const modal = document.getElementById("modal");
-    const closeModal = document.querySelector(".close");
+      const profilePicture = document.querySelector(".profile img");
+      const modal = document.getElementById("modal");
+      const closeModal = document.querySelector(".close");
 
-    profilePicture.addEventListener("click", () => {
-      modal.style.display = "block";
-    });
+      profilePicture.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
 
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target == modal) {
+      closeModal.addEventListener("click", () => {
         modal.style.display = "none";
-      }
-    });
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target == modal) {
+          modal.style.display = "none";
+        }
+      });
     </script>
   </body>
 </html>
