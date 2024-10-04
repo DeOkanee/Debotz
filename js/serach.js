@@ -22,16 +22,19 @@ const apps = [
         date: "Up 9 September 2024",
         shortDescription: "Adobe Photoshop adalah perangkat lunak pengolah gambar yang memungkinkan pengguna untuk mengedit foto dan menciptakan desain grafis dengan presisi tinggi.",
         fullDescription: "Dengan alat seperti layers, filters, dan adjustments, pengguna dapat memanipulasi gambar, menghapus objek, dan menambahkan efek visual. Photoshop digunakan oleh fotografer, seniman, dan desainer untuk berbagai proyek, mulai dari penyuntingan foto hingga pembuatan ilustrasi digital, menjadikannya salah satu alat paling populer dalam industri kreatif."
-    },
+    }
     ,
     {
-        name: "Adobe Photoshop 2023.v24.7.0 x64 Full Version",
-        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727446873/vwibe1mldskbui6pzqzq.png",
-        link: "software/Disain Grafis/Adobe-Photoshop 2023.html",
-        date: "Up 9 September 2024",
-        shortDescription: "Adobe Photoshop adalah perangkat lunak pengolah gambar yang memungkinkan pengguna untuk mengedit foto dan menciptakan desain grafis dengan presisi tinggi.",
-        fullDescription: "Dengan alat seperti layers, filters, dan adjustments, pengguna dapat memanipulasi gambar, menghapus objek, dan menambahkan efek visual. Photoshop digunakan oleh fotografer, seniman, dan desainer untuk berbagai proyek, mulai dari penyuntingan foto hingga pembuatan ilustrasi digital, menjadikannya salah satu alat paling populer dalam industri kreatif."
-    },
+        name: "Adobe Photoshop 2024.v25.7.0 x64 Portable Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1728021060/yvf1wjceqoykkl8focny.png",
+        link: "software/Disain Grafis/Adobe-Photoshop 2024.html",
+        date: "Up 4 Oktober 2024",
+        shortDescription: "Di penghujung tahun 2023, Adobe kembali memperkenalkan versi terbaru aplikasi dari photo editing mereka, yakni Adobe Photoshop 2024. Pada pembaharuan kali ini, Adobe menempatkan fokus utama pada peningkatan kinerja dan perbaikan beberapa bug yang sering terjadi pada versi 2023. Update kali ini juga menunjukkan kematangan proyek Artificial Intelligence (AI) yang telah mereka kembangkan selama beberapa tahun terakhir.",
+        fullDescription: "Adobe Photoshop 2024 juga terasa lebih stabil, terutama setelah sejumlah perbaikan bug yang dilakukan pada fitur Select and Mask, perbaikan beberapa key yang sebelumnya tidak berfungsi dengan baik saat menggunakan Generative Fill, dan sejumlah perbaikan lainnya. Interface dari versi kali ini juga terasa semakin intuitif, dengan penempatan task bar yang mengalami pembaruan, sebagai contoh munculnya Floating Contextual Task Bar yang menyajikan beberapa menu pada saat kalian menggunakan fitur masking."
+    }
+    ,
+
+    
     {
         name: "Adobe Firefly untuk Adobe Photoshop",
         image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727865555/js7j0pvus60qskta9jn0.jpg",
