@@ -123,6 +123,23 @@ const apps = [
         date: "Up 29 September 2024",
         shortDescription: "Grand Theft Auto V adalah game petualangan aksi yang dikembangkan oleh Rockstar North dan diterbitkan oleh Rockstar Games. Berlatar di negara Part fiksi San Andreas, cerita pemain tunggal mengikuti tiga kriminal dan upaya mereka untuk melakukan perampokan sambil berada di bawah tekanan dari agen pemerintah dan tokoh-tokoh kriminal yang kuat.",
         fullDescription: "Desain dunia terbuka memungkinkan pemain bebas menjelajahi pedesaan terbuka San Andreas dan kota fiksi Los Santos, yang terinspirasi dari Los Angeles. Game ini dapat dimainkan dari perspektif orang ketiga atau orang pertama, dan dunianya dapat dinavigasi dengan berjalan kaki atau menggunakan kendaraan. Pemain mengendalikan tiga protagonis utama sepanjang mode pemain tunggal dan dapat beralih di antara mereka, baik selama maupun di luar misi."
+    },
+   
+    {
+        name: "Microsoft  Office 2019 Plus",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1728810655/az8cbztrbj8uk48xinph.png",
+        link: " software/Office/office-2019.html",
+        date: "Up 10 Oktober 2024",
+        shortDescription: " Download Microsoft Office 2019 Plus. Ini adalah kumpulan aplikasi kantor yang dirancang khusus untuk melakukan pengolahan data dan angka di komputer pc berbasis Windows 32 bit dan 64 bit terbaru. Pada paket bundle Office suite ini, sudah termasuk aplikasi ms word, excel, power point dan beberapa software lainnya. ",
+        fullDescription: " Kalau sebelumnya kalian sudah download dan install MS Office 2016, saya sarankan untuk Download Office 2019. Selain fiturnya lebih lengkap, cara installnya juga lebih mudah. Tentunya saya sudah melengkapi dengan Activator terbaru untuk aktivasi."
+    },
+    {
+        name: "Microsoft Office LTs 2021 Plus",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1728810543/tmi2kt1liedhlrh1qybk.jpg",
+        link: " software/Office/office-2021.html",
+        date: "Up 10 Oktober 2024",
+        shortDescription: "Download Microsoft Office LTS 2021 PLUS. Sebagai produk penerus dari MS Office, tentunya update terbaru ini membawa banyak perubahan yang sangat dinantikan pengguna. Software ini dirilis oleh Microsoft pada bulan Oktober 2021 lalu dan memiliki banyak fitur terbaru seperti Inking tools,",
+        fullDescription: "Functions, Data Types, Editing Tools, Motion Graphics dan masih banyak lainnya. Semua pengguna Windows 11 dan MacOS Monterey dapat menggunakan software ini dengan semua fitur yang gratis."
     }
 ];
 
