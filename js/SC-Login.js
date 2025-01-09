@@ -7,7 +7,7 @@ const firebaseConfig = {
     apiKey: "AIzaSyDCK8nNkVwczT9Bib51K9SKTpQWJR4GxS8",
     authDomain: "debotz-login.firebaseapp.com",
     projectId: "debotz-login",
-    storageBucket: "debotz-login.firebasestorage.app",
+    storageBucket: "debotz-login.appspot.com",
     messagingSenderId: "417951071336",
     appId: "1:417951071336:web:af61286be4d2ac86328fdd",
   };

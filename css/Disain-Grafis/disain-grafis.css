@@ -126,7 +126,7 @@ nav ul li:hover .dropdown {
 
 
 .search-bar {
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .search-bar input {
     width: 100%;
@@ -301,7 +301,7 @@ footer a.privacy-link:hover {
 
     /* Tampilan search bar */
     .search-bar {
-        margin-top: 60px; /* Sesuaikan jarak header */
+        margin-top: 90px; /* Sesuaikan jarak header */
        text-align: center;
     
     }
@@ -407,7 +407,7 @@ footer a.privacy-link:hover {
     }
     /* Tampilan search bar */
     .search-bar {
-        margin-top: 60px; /* Sesuaikan jarak header */
+        margin-top: 80px; /* Sesuaikan jarak header */
         text-align: center;
     }
     .search-bar input{
