@@ -148,6 +148,14 @@ const apps = [
         date: "Up 10 Oktober 2024",
         shortDescription: "Download Microsoft Office LTS 2021 PLUS. Sebagai produk penerus dari MS Office, tentunya update terbaru ini membawa banyak perubahan yang sangat dinantikan pengguna. Software ini dirilis oleh Microsoft pada bulan Oktober 2021 lalu dan memiliki banyak fitur terbaru seperti Inking tools,",
         fullDescription: "Functions, Data Types, Editing Tools, Motion Graphics dan masih banyak lainnya. Semua pengguna Windows 11 dan MacOS Monterey dapat menggunakan software ini dengan semua fitur yang gratis."
+    },
+    {
+        name: "IBM SPSS v26 Windows 64 Bit",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1736428027/kcudcbiuomfrak4kswsf.png",
+        link: "software/SPSS/spss-v26.html",
+        date: "Up 5 Januari 2025",
+        shortDescription: "Download IBM SPSS 26 Full Version Gratis untuk Windows 10. SPSS tetap menjadi salah satu aplikasi yang sangat populer dan banyak digunakan untuk mengolah data statistik.",
+        fullDescription: "Baik digunakan oleh individu dalam menyelesaikan tugas statistik mereka maupun oleh organisasi dalam menganalisis dan mengelola data bisnis mereka. Pada tahun 2019, IBM merilis versi terbaru dari SPSS, yaitu SPSS 26. Meskipun ada sedikit perubahan dalam fitur, versi terbaru ini menawarkan peningkatan signifikan dalam performa dan stabilitasnya dibandingkan dengan versi sebelumnya."
     }
 ];
 
