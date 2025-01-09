@@ -44,6 +44,14 @@ const apps = [
         fullDescription: "Ini difokuskan pada pembuatan efek untuk gambar dan teks, dan salah satu USP utamanya adalah memodifikasi dan membuat gambar yang sadar konten di Photoshop."
     },
     {
+        name: "Adobe Premiere Pro 2021.15.4.0.47.x64 Full Version",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727483951/ctasvv4gzdwged8woccm.png",
+        link: "software/Video Editor/Premiere-Pro 2021.html",
+        date: "Up 9 September 2024",
+        shortDescription: "Adobe Premiere Pro 2021 Full Version 64 Bit Final. Pada awal tahun 2021, Adobe merilis versi terbaru untuk beberapa software yang termasuk ke dalam jajaran koleksi Adobe Creative Cloud-nya. Tidak terkecuali software video editing populer yaitu Adobe Premiere Pro CC 2021.",
+        fullDescription: "Sama seperti sebelumnya, Adobe kembali memberikan fitur-fitur terbaru dan terus menyempurnakan beberapa tools pada Premiere Pro 2021 untuk tetap menjadi salah satu yang terbaik pada kategori video editing software. Beberapa fitur yang ditambahkan atau diberikan pembaruan diantaranya adalah Media Replacement, Warp Stabilizer, HDR Workflows, Color Grading with color space REC-2100, Color management for ARRI ProRes, Transcript editing tools, Scene Edit Detection AI dan masih banyak lagi."
+    },
+    {
         name: "Adobe Premiere Pro 2023.v23.6.0.65.x64 Full Version",
         image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727483951/ctasvv4gzdwged8woccm.png",
         link: "software/Video Editor/Premiere-Pro 2023.html",
