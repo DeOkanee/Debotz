@@ -8,10 +8,13 @@
     <meta property="og:description" content="Debotz adalah website yang menyediakan berbagai software berkualitas untuk memenuhi kebutuhan teknologi Anda." />
     <meta property="og:image" content="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" />
     <title>Debotz - Login</title>
-    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727440966/fniygrbsecuvt4bbjir0.png" type="image/x-icon" />
+    <link rel="icon" href="https://res.cloudinary.com/dwpnsfghy/image/upload/v1736404631/bgi3kbq93ycjppqyjlnv.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/Login/Login.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  <!-- SC-Login.js -->
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 </head>
 <body>
@@ -19,8 +22,14 @@
     <form class="form" id="login-form" action="#" method="post">
         <p>Welcome,<span>sign in to continue</span></p>
 
-        <div id="g_id_onload" data-client_id="401943700498-hvht2ri0fp01vel82gtrvcdc47uq29h6.apps.googleusercontent.com" data-callback="handleCredentialResponse"></div>
-        <div class="g_id_signin" data-type="standard"></div>
+        <!-- Tombol Login dengan Google -->
+        <button type="button" id="google-login" class="oauthButton">
+            Login with Google
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 17 5-5-5-5"></path>
+                <path d="m13 17 5-5-5-5"></path>
+            </svg>
+        </button>
 
         <div class="separator">
             <div></div>
@@ -31,14 +40,9 @@
         <input type="text" placeholder="Username" name="Username" />
         <input type="email" placeholder="Email" name="Email" />
 
-        <button class="oauthButton" type="submit">Continue
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m6 17 5-5-5-5"></path>
-                <path d="m13 17 5-5-5-5"></path>
-            </svg>
-        </button>
+        <button class="oauthButton" type="submit">Continue</button>
     </form>
 
-  <script src="/js/SC-Login.js"></script>
+  <script src="js/SC-Login.js"></script>
 </body>
 </html>

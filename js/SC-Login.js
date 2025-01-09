@@ -1,110 +1,56 @@
-// Fungsi untuk menangani respons setelah login dengan Google
-function handleCredentialResponse(response) {
-    const data = jwt_decode(response.credential); // Dekode token
-    // Simpan data pengguna ke localStorage
-    localStorage.setItem("userData", JSON.stringify({
-        name: data.name,
-        email: data.email,
-    }));
+// Konfigurasi Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
-    // Redirect ke halaman profil setelah login
-    window.location.href = "/Profile.html";
-}
 
-// Menangani pengiriman form secara manual
+const firebaseConfig = {
+    apiKey: "AIzaSyDCK8nNkVwczT9Bib51K9SKTpQWJR4GxS8",
+    authDomain: "debotz-login.firebaseapp.com",
+    projectId: "debotz-login",
+    storageBucket: "debotz-login.firebasestorage.app",
+    messagingSenderId: "417951071336",
+    appId: "1:417951071336:web:af61286be4d2ac86328fdd",
+  };
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+
+// Login dengan Google
+document.getElementById("google-login").addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            console.log("User signed in:", user);
+
+            // Simpan data pengguna ke localStorage
+            localStorage.setItem("userData", JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+            }));
+
+            // Redirect ke halaman profil
+            window.location.href = "/Profile.html";
+        })
+        .catch((error) => {
+            console.error("Error during login:", error);
+            Swal.fire("Login failed", error.message, "error");
+        });
+});
+
+// Login manual dengan form
 document.getElementById("login-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var Username = this.elements["Username"].value;
-    var Email = this.elements["Email"].value;
+    const Username = this.elements["Username"].value;
+    const Email = this.elements["Email"].value;
 
-    // Validasi: Cek jika Username atau Email kosong
     if (!Username || !Email) {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-
-        Toast.fire({
-            icon: 'warning',
-            title: 'Data Kosong. Mohon isi data!'
-        });
-
-        return; // Hentikan eksekusi lebih lanjut
+        Swal.fire("Error", "Please fill in all fields", "warning");
+        return;
     }
 
-    console.log("Attempting to log in with:", Username, Email);
-
-    // Tampilkan loading indicator
-    Swal.fire({
-        title: 'Logging in...',
-        allowOutsideClick: false,
-        didOpen: () => {
-            Swal.showLoading();
-        }
-    });
-
-    // Simpan data login manual ke localStorage
-    localStorage.setItem("manualUser", JSON.stringify({
-        name: Username,
-        email: Email
-    }));
-
-    // Kirim data ke Google Sheets
-    sendDataToGoogleSheet(Username, Email);
-
-    // Tutup loading indicator
-    Swal.close();
-
-    // Tampilkan toast sukses
-    const ToastSuccess = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        },
-    });
-
-    ToastSuccess.fire({
-        icon: "success",
-        title: "Signed in successfully",
-    }).then(() => {
-        // Redirect setelah toast
-        window.location.href = "/Disain-Grafis.html";
-    });
+    // Simpan data pengguna manual
+    localStorage.setItem("manualUser", JSON.stringify({ name: Username, email: Email }));
+    window.location.href = "/Disain-Grafis.html";
 });
-
-function sendDataToGoogleSheet(Username, Email) {
-    const url = "https://script.google.com/macros/s/AKfycby9j139EglEGRYG7hU1SHsHjKgA_wcWjaZTq9OYdZNRqqaruovnHnkFG3qPY7F1Adsh/exec";
-    const data = new FormData();
-    data.append('Username', Username);
-    data.append('Email', Email);
-
-    fetch(url, {
-        method: 'POST',
-        body: data
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.text();
-    })
-    .then(result => {
-        console.log('Data berhasil dikirim ke Google Sheets:', result);
-    })
-    .catch(error => {
-        console.error('Ada masalah dengan pengiriman data:', error);
-    });
-}
