@@ -152,10 +152,82 @@
                         <p>Download Ready or Not<br>(Size: 44,8 GB)</p>
                         
                         <div class="download-links">
-                            <h3>Link Terabox download file iso:</h3>
-                            <div class="download-links">
-                               | <a href="https://sfl.gl/alaaL">Terabox</a> | <a style="display: none;" href="#">Mediafire</a>
+                           
+                            <div class="downd">
+                                <a href="#" id="downloadBtn" style="color: white;" class="btn download-btn">Download NOW</a>
+                                <div id="countdown" style="display: none; margin-top: 10px; color: white;">
+                                    <div class="spinner"></div>
+                                    <p id="countdownText" style="margin-top: 8px;">Wait.. 6</p>
+                                </div>
                             </div>
+                            
+                            <style>
+                                .downd a {
+                                    text-decoration: none;
+                                }
+                            
+                                .download-btn {
+                                    background: linear-gradient(45deg, #3ce783, #2bc044);
+                                    padding: 10px 20px;
+                                    border-radius: 25px;
+                                    display: inline-block;
+                                    text-align: center;
+                                    transition: background 0.3s ease;
+                                    margin: 5px;
+                                }
+                            
+                                .download-btn:hover {
+                                    background: linear-gradient(45deg, #2bc06e, #26a94d);
+                                }
+                            
+                                #countdown {
+                                    text-align: center;
+                                    position: relative;
+                                }
+                            
+                                .spinner {
+                                    width: 40px;
+                                    height: 40px;
+                                    border: 4px solid rgba(255, 255, 255, 0.3);
+                                    border-top: 4px solid white;
+                                    border-radius: 50%;
+                                    animation: spin 1s linear infinite;
+                                    margin: 0 auto;
+                                }
+                            
+                                @keyframes spin {
+                                    0% {
+                                        transform: rotate(0deg);
+                                    }
+                                    100% {
+                                        transform: rotate(360deg);
+                                    }
+                                }
+                            </style>
+                            
+                            <script>
+                                document.getElementById('downloadBtn').addEventListener('click', function (event) {
+                                    event.preventDefault();
+                                    const button = event.target;
+                                    const countdownContainer = document.getElementById('countdown');
+                                    const countdownText = document.getElementById('countdownText');
+                                    let countdownValue = 6;
+                            
+                                    button.style.display = 'none';
+                                    countdownContainer.style.display = 'block';
+                            
+                                    const countdownInterval = setInterval(function () {
+                                        countdownValue--;
+                                        countdownText.textContent = countdownValue;
+                            
+                                        if (countdownValue <= 0) {
+                                            clearInterval(countdownInterval);
+                                            window.location.href = "https://sfl.gl/alaaL";
+                                        }
+                                    }, 1000);
+                                });
+                            </script>
+                            
                            
                         </div>
                         <br>
