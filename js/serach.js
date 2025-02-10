@@ -156,6 +156,22 @@ const apps = [
         date: "Up 5 Januari 2025",
         shortDescription: "Download IBM SPSS 26 Full Version Gratis untuk Windows 10. SPSS tetap menjadi salah satu aplikasi yang sangat populer dan banyak digunakan untuk mengolah data statistik.",
         fullDescription: "Baik digunakan oleh individu dalam menyelesaikan tugas statistik mereka maupun oleh organisasi dalam menganalisis dan mengelola data bisnis mereka. Pada tahun 2019, IBM merilis versi terbaru dari SPSS, yaitu SPSS 26. Meskipun ada sedikit perubahan dalam fitur, versi terbaru ini menawarkan peningkatan signifikan dalam performa dan stabilitasnya dibandingkan dengan versi sebelumnya."
+    },
+    {
+        name: "The Forest",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1739150253/kdoedokedy1schaw70yk.jpg",
+        link: "software/Games/The Forest.html",
+        date: "Up 10 Febuari 2025",
+        shortDescription: "Game komputer ini diciptakan dan diterbitkan oleh Endnight Games. Pada tanggal 6 November 2018, game ini tersedia untuk PlayStation 4, Xbox One, dan sistem operasi Microsoft, Linux, dan Macintosh OS.",
+        fullDescription: "Ada dua mode permainan solo dan multipemain dalam video game seru bertahan hidup ini. Game penembak jitu orang pertama The Forest tidak seperti game lainnya. Game ini merupakan pengalaman yang mendalam dengan teka-teki, misteri, dan elemen menakutkan."
+    },
+    {
+        name: "Ready or Not",
+        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727686805/re2sslyqvivppsmhbqht.png",
+        link: "software/Games/Ready or Not.html",
+        date: "Up 30 September 2024",
+        shortDescription: "Ready or Not adalah game tembak-menembak orang pertama yang realistis dan taktis, dikembangkan oleh VOID Interactive. Game ini pertama kali dirilis dalam tahap Alpha pada 19 Agustus 2019 untuk PC Windows, menggunakan teknologi Unreal Engine 5 milik Epic Games yang menghadirkan visual memukau serta pengalaman bermain yang mendalam.",
+        fullDescription: "Dalam game ini, pemain berperan sebagai pemimpin unit taktis SWAT Amerika yang ditugaskan menangani berbagai situasi kriminal berisiko tinggi, seperti perampokan bersenjata hingga insiden penembakan massal. Setiap misi menuntut perencanaan strategis, kerja sama tim yang solid, serta eksekusi taktis yang presisi."
     }
 ];
 
