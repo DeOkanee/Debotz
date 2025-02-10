@@ -102,27 +102,108 @@
                         <p>Unduh Grand Theft Auto V (GTA V) Versi Lengkap <br>(Total Ukuran: 108 GB)</p>
                         
                         <div class="download-links">
-                            <h3>Link Part File OneDrive:</h3>
-                            <ol>
-                                <li>Grand Theft Auto V<a href="#">Part 1  (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 2 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 3 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 4 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 5 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 6 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 7 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 8 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 9 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 10 (10 GB)</a></li>
-                                <li>Grand Theft Auto V<a href="#">Part 11 (8 GB)</a></li>
-                            </ol>
-                            <h3>Link Single File OneDrive:</h3>
-        
-                            <ul class="single">
-                          
-                                <li>GTA V<a href="#">Single File (108 GB)</a></li>
-                            </ul>
+                            <div class="downd">
+                                <a href="#" id="downloadBtn" style="color: white;" class="btn download-btn">Download NOW</a>
+                                <div id="countdown" style="display: none; margin-top: 10px; color: white;">
+                                    <div class="spinner"></div>
+                                    <p id="statusText" style="margin-top: 8px;">Sedang membuat link...</p>
+                                    <p id="countdownText" style="margin-top: 4px;">Tunggu.. 10</p>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <style>
+                            .downd a {
+                                text-decoration: none;
+                            }
+                        
+                            .download-btn {
+                                background: linear-gradient(45deg, #3ce783, #2bc044);
+                                padding: 10px 20px;
+                                border-radius: 25px;
+                                display: inline-block;
+                                text-align: center;
+                                transition: background 0.3s ease;
+                                margin: 5px;
+                            }
+                        
+                            .download-btn:hover {
+                                background: linear-gradient(45deg, #2bc06e, #26a94d);
+                            }
+                        
+                            #countdown {
+                                text-align: center;
+                                position: relative;
+                            }
+                        
+                            .spinner {
+                                width: 40px;
+                                height: 40px;
+                                border: 4px solid rgba(255, 255, 255, 0.3);
+                                border-top: 4px solid white;
+                                border-radius: 50%;
+                                animation: spin 1s linear infinite;
+                                margin: 0 auto;
+                            }
+                        
+                            @keyframes spin {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        </style>
+                        
+                        <script>
+                            document.getElementById('downloadBtn').addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const button = document.getElementById('downloadBtn');
+                                const countdownContainer = document.getElementById('countdown');
+                                const countdownText = document.getElementById('countdownText');
+                                let countdownValue = 10;
+                        
+                                if (!localStorage.getItem("downloadClicked")) {
+                                    // Simpan status di localStorage
+                                    localStorage.setItem("downloadClicked", "true");
+                                    
+                                    // Buka link tipuan di tab baru
+                                    window.open("https://saweria.co/Debotz", "_blank"); // Ganti dengan link tipuan
+                                    
+                                    // Simpan waktu klik untuk pengecekan nanti
+                                    localStorage.setItem("fakeLinkOpened", Date.now());
+                                } else {
+                                    // Klik kedua, mulai hitungan mundur ke link asli
+                                    button.style.display = 'none';
+                                    countdownContainer.style.display = 'block';
+                        
+                                    const countdownInterval = setInterval(function () {
+                                        countdownValue--;
+                                        countdownText.textContent = "Tunggu.. " + countdownValue;
+                        
+                                        if (countdownValue <= 0) {
+                                            clearInterval(countdownInterval);
+                                            window.location.href = "https://sfl.gl/f2Ei"; // Link asli
+                                        }
+                                    }, 1000);
+                                }
+                            });
+                        
+                            // Cek jika user kembali ke halaman setelah klik link tipuan
+                            window.addEventListener("focus", function () {
+                                if (localStorage.getItem("downloadClicked") && localStorage.getItem("fakeLinkOpened")) {
+                                    // Tampilkan kembali tombol "Download" jika user kembali dari link tipuan
+                                    document.getElementById('downloadBtn').style.display = 'inline-block';
+                                    localStorage.removeItem("fakeLinkOpened"); // Hapus status agar tidak looping
+                                }
+                            });
+                        
+                            // Reset localStorage jika user refresh halaman
+                            window.addEventListener("load", function () {
+                                localStorage.removeItem("downloadClicked");
+                            });
+                        </script>
                         <br>
                         <div class="download-links">
                             Password RAR: <a style="cursor: pointer;" class="copy-icon" id="copyText">Debotz</a>

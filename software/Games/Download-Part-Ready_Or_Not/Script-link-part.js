@@ -1,7 +1,7 @@
  // Sample game data
  const games = [
     { id: 1, title: "Part 1", link: "https://sfl.gl/nmwWbbcn" },
-    { id: 2, title: "Part 2", link: "#" },
+    { id: 2, title: "Part 2", link: "https://sfl.gl/eKo84nj" },
     { id: 3, title: "Part 3", link: "#" },
     { id: 4, title: "Part 4", link: "#" },
     { id: 6, title: "Part 6", link: "#" },
