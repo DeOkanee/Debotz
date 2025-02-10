@@ -111,14 +111,7 @@ const apps = [
         shortDescription: "KMSAuto++ 1.8.7 adalah software aktivator buatan Ratiborus yang dirancang untuk mengaktifkan berbagai versi Windows, termasuk Windows 11 dan Windows 10, serta Office 2019 hingga Office 2021.",
          fullDescription: "Versi terbaru ini menawarkan fitur tambahan, seperti auto-disable Windows Defender untuk mempermudah proses aktivasi tanpa perlu mematikan antivirus secara manual. Software ini bersifat portable, cukup jalankan file exe dan tekan tombol aktivasi. Selain itu, KMSAuto mendukung berbagai sistem operasi, mulai dari Windows 7 hingga Windows Server, serta berbagai versi Office."
     },
-    {
-        name: "KMSAuto++ 1.8.7 Multilingual",
-        image: "https://res.cloudinary.com/dwpnsfghy/image/upload/v1727486223/gouuns0adajw0f25mfbz.jpg",
-        link: "software/Aktivasi/KMS+187.html",
-        date: "Up 10 September 2024",
-        shortDescription: "KMSAuto++ 1.8.7 adalah software aktivator buatan Ratiborus yang dirancang untuk mengaktifkan berbagai versi Windows, termasuk Windows 11 dan Windows 10, serta Office 2019 hingga Office 2021.",
-        fullDescription: "Versi terbaru ini menawarkan fitur tambahan, seperti auto-disable Windows Defender untuk mempermudah proses aktivasi tanpa perlu mematikan antivirus secara manual. Software ini bersifat portable, cukup jalankan file exe dan tekan tombol aktivasi. Selain itu, KMSAuto mendukung berbagai sistem operasi, mulai dari Windows 7 hingga Windows Server, serta berbagai versi Office."
-    },
+    
     //games
     {
         name: "Grand Theft Auto V (GTA V)",
