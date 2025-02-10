@@ -39,14 +39,15 @@ function renderGames(gamesArray) {
 }
 
 // Search functionality
+// Search functionality
 document.getElementById('searchInput').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
     const filteredGames = games.filter(game => 
-        game.title.toLowerCase().includes(searchTerm) || 
-        game.desc.toLowerCase().includes(searchTerm)
+        game.title.toLowerCase().includes(searchTerm) // Hanya mencari berdasarkan title karena `desc` tidak ada
     );
     renderGames(filteredGames);
 });
+
 
 // Initial render
 renderGames(games);
