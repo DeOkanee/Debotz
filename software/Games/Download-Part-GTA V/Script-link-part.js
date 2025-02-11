@@ -1,15 +1,15 @@
  // Sample game data
  const games = [
-    { id: 1, title: "Part 1", link: "https://sfl.gl/nmwWbbcn" },
-    { id: 2, title: "Part 2", link: "https://sfl.gl/eKo84nj" },
-    { id: 3, title: "Part 3", link: "https://sfl.gl/GiObQhtG" },
-    { id: 4, title: "Part 4", link: "https://sfl.gl/Y4pW" },
-    { id: 5, title: "Part 5", link: "https://sfl.gl/JPeYC" },
-    { id: 6, title: "Part 6", link: "https://sfl.gl/OGuLDwH" },
-    { id: 7, title: "Part 7", link: "https://sfl.gl/meCVH" },
-    { id: 8, title: "Part 8", link: "https://sfl.gl/N6XR" },
-    { id: 9, title: "Part 9", link: "https://sfl.gl/N2YSPA4" },
-    { id: 10, title: "Part 10", link: "https://sfl.gl/yzfmDY5" },
+    { id: 1, title: "Part 1", link: "#" },
+    { id: 2, title: "Part 2", link: "#" },
+    { id: 3, title: "Part 3", link: "#" },
+    { id: 4, title: "Part 4", link: "#" },
+    { id: 5, title: "Part 5", link: "#" },
+    { id: 6, title: "Part 6", link: "#" },
+    { id: 7, title: "Part 7", link: "#" },
+    { id: 8, title: "Part 8", link: "#" },
+    { id: 9, title: "Part 9", link: "#" },
+    { id: 10, title: "Part 10", link: "#" },
     { id: 11, title: "Part 11", link: "#" },
     { id: 12, title: "Part 12", link: "#" },
     { id: 13, title: "Part 13", link: "#" },
@@ -27,7 +27,7 @@ function renderGames(gamesArray) {
         gameList.innerHTML += `
             <div class="col-md-6 col-lg-4">
                 <div class="game-card">
-                    <img src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727686805/re2sslyqvivppsmhbqht.png" style="width:50px; height:50px;" class="game-image mb-3" alt="${game.title}">
+                    <img src="https://res.cloudinary.com/dwpnsfghy/image/upload/v1727583330/blvvp1asve4nlzwpdlkh.png" style="width:60px; height:60px;" class="game-image mb-3" alt="${game.title}">
                     <h4>${game.title}</h4>
                    
                     <a href="${game.link}" target="_blank" class="btn download-btn">

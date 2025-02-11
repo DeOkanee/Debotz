@@ -1,0 +1,104 @@
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.game-card {
+    background: #2d2d2d;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px ;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    background: #373737;
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    border: none;
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.search-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.game-image {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.single-file-download .card {
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.single-file-download .card-body {
+    padding: 2rem;
+}
+
+.single-file-download .card-title {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.single-file-download .card-text {
+    color: #bebebe;
+    margin-bottom: 1.5rem;
+}
+
+.single-file-download .btn-primary {
+    background-color: #ff9100;
+    border: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.single-file-download .btn-primary:hover {
+    background-color: #ff7b00;
+    transform: translateY(-2px);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+footer{
+    background: #383838;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
